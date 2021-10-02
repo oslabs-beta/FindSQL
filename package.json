@@ -1,0 +1,19 @@
+{
+  "name": "osp-sqlgenerator",
+  "version": "1.0.0",
+  "description": "App that generates SQL queries and visually represents an entire database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslabs-beta/OSP-SQLgenerator.git"
+  },
+  "author": "JDAC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oslabs-beta/OSP-SQLgenerator/issues"
+  },
+  "homepage": "https://github.com/oslabs-beta/OSP-SQLgenerator#readme"
+}
