@@ -2,9 +2,10 @@
   "name": "osp-sqlgenerator",
   "version": "1.0.0",
   "description": "App that generates SQL queries and visually represents an entire database",
-  "main": "server.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "start" : "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,30 @@
   "bugs": {
     "url": "https://github.com/oslabs-beta/OSP-SQLgenerator/issues"
   },
-  "homepage": "https://github.com/oslabs-beta/OSP-SQLgenerator#readme"
+  "homepage": "https://github.com/oslabs-beta/OSP-SQLgenerator#readme",
+  "dependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "axios": "^0.22.0",
+    "eslint": "^7.32.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "react": "^17.0.2",
+    "react-axios": "^2.0.5",
+    "react-dom": "^17.0.2",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "nodemon": "^2.0.13",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0"
+  }
 }
