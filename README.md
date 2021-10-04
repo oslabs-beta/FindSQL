@@ -1,1 +1,1 @@
-SQL Query Generator and Visualizer read me smile
+SQL Query Generator and Visualizer
