@@ -19,11 +19,22 @@ app.get(
   queryController.getQuery,
   queryController.getAllTables,
   (req, res) => {
-    console.log(res.locals.data, "this is reslocalstables");
-    res.status(200).send(res.locals.data).json();
+    const { data } = res.locals;
+    res.status(200).send(data);
   }
 );
 
+//global error object
+app.use((err, req, res, next) => {
+  const defualtErrorHandle = {
+    log: "Error in middlewear function",
+    status: 400,
+    message: { err: "An error occured" },
+  };
+  const newErr = Object.assign(defualtErrorHandle, { err: err });
+  return res.status(newErr.status).send(newErr.message);
+});
+//start the server
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
