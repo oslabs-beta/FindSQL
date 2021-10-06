@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Columns from '/Columns';
+import Columns from './Columns';
 
 
 //function component for Columns
@@ -17,5 +17,6 @@ export default function Tables() {
     <div>
       { table }
     </div>
+    
   );
 }

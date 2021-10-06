@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, "../src/index.html"));
+  return res.status(200).sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 //get request to a test URL that will Query the tables needed to be pushed to front end
