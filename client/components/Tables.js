@@ -17,5 +17,6 @@ export default function Tables() {
     <div>
       { table }
     </div>
+    
   );
 }
