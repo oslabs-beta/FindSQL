@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Tables from '/Tables';
+import Tables from './Tables';
 
 
 export default function Container() {
