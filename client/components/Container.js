@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Tables from '/Tables';
-
+import Tables from './Tables';
 
 export default function Container() {
   const [database, setDatabase] = useState([]);
-
-
 
   //setDatabase(database.push(< Tables columns={obj} />))
   function getDatabase () {
@@ -13,7 +10,7 @@ export default function Container() {
       .then(res => res.json())
       .then(res => {
         for(let i = 0; i < res.length; i++){
-          setDatabase(database.push(< Tables id = {i} data = {res[i]} />));
+          setDatabase(database.push(< Tables id={i} data={res[i]} />));
         }
       });
   // .then(res => {
@@ -26,8 +23,8 @@ export default function Container() {
   return (
     <div>
       <div>
-        <input type="text">Your URI</input>
-        <button type = "submit" onClick = {() => getDatabase()}></button>    
+        <input type="text" placeholder="Your URI"/>
+        <button type="submit" onClick={() => getDatabase()}></button>    
       </div>
       <div>
         { database }

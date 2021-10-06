@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Columns from '/Columns';
+import Columns from './Columns';
 
 
 //function component for Columns
 export default function Tables() {
   const [table, setTable] = useState([]);
   const [data, setData] = useState(this.props.data);
+  // const [tableName, setTableName]= useState(this.props.data.name);
 
   useEffect(() => {
     Object.keys(data).forEach(key => {
@@ -17,5 +18,6 @@ export default function Tables() {
     <div>
       { table }
     </div>
+    
   );
 }

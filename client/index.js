@@ -1,10 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from '/App';
-import styles from './stylesheets/style.css';
+import App from './App';
+// import styles from './stylesheets/style.css';
 
-render ( 
-  <App />,
-  document.getElemenyById('app')
-);
 
+render ( <App />, document.querySelector('#app'));
