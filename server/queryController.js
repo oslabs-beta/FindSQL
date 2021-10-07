@@ -1,4 +1,4 @@
-const db = require("./query.js");
+const db = require('./query.js');
 
 const query = `SELECT * FROM pg_catalog.pg_tables
 WHERE schemaname != 'pg_catalog' AND
@@ -56,7 +56,7 @@ queryController.getAllTables = async (req, res, next) => {
         const returnVal = {};
         const keys = [];
         // iterate through object pushing keys into key array
-        for (let key in tableData[i].rows[0]) {
+        for (const key in tableData[i].rows[0]) {
           keys.push(key);
         }
         // push tableRows current indice and the associated key array into returned object (returnVal)
