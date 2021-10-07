@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Columns() {
+export default function Columns(props) {
   return (
-    <button id = {this.props.id}>{this.props.columns}</button>
+    <button>{props.columns}</button>
   );
 }
