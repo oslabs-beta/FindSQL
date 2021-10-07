@@ -19,9 +19,9 @@ WHERE schemaname != 'pg_catalog' AND
 schemaname != 'information_schema';`;
 
 // const testString = "SELECT * FROM planets limit 3";
-
+//changed src to client for front end test
 app.get("/", (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, "../src/index.html"));
+  return res.status(200).sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 //get request to a test URL that will Query the tables needed to be pushed to front end
