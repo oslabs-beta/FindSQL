@@ -17,20 +17,23 @@ export default function Tables(props) {
 
     const updatedTable = [];
     data[key].forEach(col => {
-      updatedTable.push(< Columns key={data[key].indexOf(col)} columns={col} />);
+      updatedTable.push(
+        <div className="column">
+          < Columns key={data[key].indexOf(col)} columns={col} />
+        </div>
+      );
     });
     setTable(updatedTable);
   }, []);
 
   return (
     <div>
-      <div>
+      <div className="tableName">
         { tableName }
       </div>
-      <div>
+      <div className="table">
         { table }
       </div>
     </div>
-    
   );
 }

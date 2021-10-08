@@ -13,7 +13,11 @@ export default function Container() {
         const updatedDatabase = [];
         for(let i = 0; i < res.length; i++){
           // setDatabase(database.push(< Tables id={i} data={res[i]} />));
-          updatedDatabase.push(< Tables key={i} data={res[i]} />);
+          updatedDatabase.push(
+            <div className="card">
+              < Tables key={i} data={res[i]} />
+            </div>
+          );
         }
         setDatabase(updatedDatabase);
       });
@@ -26,11 +30,11 @@ export default function Container() {
 
   return (
     <div>
-      <div>
+      <div className="inputURI">
         <input type="text" placeholder="Your URI"/>
         <button type="submit" onClick={() => getDatabase()}>Get Data</button>    
       </div>
-      <div>
+      <div className="database">
         { database }
       </div>
     </div>
