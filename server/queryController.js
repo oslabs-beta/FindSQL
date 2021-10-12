@@ -1,16 +1,25 @@
-const db = require('./query.js');
+const createDB = require('./query.js');
+const { Pool } = require('pg');
 
 const query = `SELECT * FROM pg_catalog.pg_tables
 WHERE schemaname != 'pg_catalog' AND
 schemaname != 'information_schema';`;
 
+
 // declare query object that will later be exported
 const queryController = {};
 // declare query rows, that will later be filled with data, and then reset at the end of the get request
 let tableRows = [];
-
+queryController.databaseCreator = (req, res, next)=> {
+  const { uri } = req.body;
+  const db = createDB(uri);
+  res.locals.db = db; 
+  next(); 
+};
 // query controller to get query
 queryController.getQuery = (req, res, next) => {
+  const { db } = res.locals;
+
   try {
     // initiate the query
     db.query(query)
@@ -34,6 +43,7 @@ queryController.getQuery = (req, res, next) => {
 };
 // take the data from table rows declared earlier and play with it
 queryController.getAllTables = async (req, res, next) => {
+  const { db } = res.locals;
   try {
     // declare variables for the final result, and the table data
     const result = [];
