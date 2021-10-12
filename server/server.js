@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const PORT = 3000;
-const db = require('./query.js');
 
 const queryController = require('./queryController');
 
@@ -16,8 +15,9 @@ app.get('/', (req, res) => {
 });
 
 //get request to a test URL that will Query the tables needed to be pushed to front end
-app.get(
+app.post(
   '/test',
+  queryController.databaseCreator,
   queryController.getQuery,
   queryController.getAllTables,
   (req, res) => {

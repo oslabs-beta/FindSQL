@@ -2,18 +2,29 @@ import React, { useState, useEffect } from 'react';
 import Tables from './Tables';
 import QueryGenerator from './QueryGenerator';
 import axios from 'axios';
+import { json } from 'body-parser';
 
 export default function Container() {
   const [database, setDatabase] = useState([]);
   // const [queryTable, setQueryTable] = useState('');
-
+  
   //setDatabase(database.push(< Tables columns={obj} />))
   function getDatabase (uri) {
     //we still keep the /test endpoint but we maybe want to incorporate string interpolation to include the URI that we grab
     //from the input box
     console.log(uri);
     //fetch(`/test/uri`)
-    fetch('/test')
+    const myURI = {
+      uri: uri,
+    };
+
+    fetch('/test', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(myURI),
+    })
       .then(res => res.json())
       .then(res => {
         const updatedDatabase = [];
