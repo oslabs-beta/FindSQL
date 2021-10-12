@@ -23,7 +23,7 @@ app.get(
     res.status(200).send(data);
   }
 );
-
+//
 //global error object
 app.use((err, req, res, next) => {
   const defualtErrorHandle = {
