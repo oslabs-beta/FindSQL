@@ -4,11 +4,12 @@ import QueryGenerator from './QueryGenerator';
 import axios from 'axios';
 import { json } from 'body-parser';
 
+//postgres://hdyovvhb:AdLaNCcnn6hQ939_Hq1ba44_qTfnEdUN@chunee.db.elephantsql.com/hdyovvhb
+
 let globalQueryData; 
 export default function Container(props) {
   const [database, setDatabase] = useState([]);
   const [queryTableData, setQueryTableData] = useState([]);
-
 
   function getDatabase (uri) {
     
@@ -43,10 +44,8 @@ export default function Container(props) {
         setQueryTableData(arrTableNames);
         setDatabase(updatedDatabase);
       });
-  
   }
      
-   
   globalQueryData = queryTableData;
   
   function isOn(currentTable){
@@ -62,7 +61,7 @@ export default function Container(props) {
     setQueryTableData(newArr);
   }
 
-  console.log(queryTableData), "June this is for yaaaa to see";
+  // console.log(queryTableData), "June this is for yaaaa to see";
   return (
     <div>
       <div className="inputURI">
@@ -70,7 +69,7 @@ export default function Container(props) {
         <button type="submit" onClick={() => getDatabase(document.getElementById('URI').value)}>Get Data</button>    
       </div>
       <div>
-        < QueryGenerator/>
+        < QueryGenerator queryData = { queryTableData } />
       </div>
       <div className="database">
         { database }
