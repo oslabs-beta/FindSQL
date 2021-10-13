@@ -10,11 +10,11 @@ schemaname != 'information_schema';`;
 const queryController = {};
 // declare query rows, that will later be filled with data, and then reset at the end of the get request
 let tableRows = [];
-queryController.databaseCreator = (req, res, next)=> {
+queryController.databaseCreator = (req, res, next) => {
   const { uri } = req.body;
   const db = createDB(uri);
-  res.locals.db = db; 
-  next(); 
+  res.locals.db = db;
+  next();
 };
 // query controller to get query
 queryController.getQuery = (req, res, next) => {

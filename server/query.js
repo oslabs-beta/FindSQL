@@ -1,13 +1,11 @@
 const { Pool } = require('pg');
 
- 
-function createDB(uri){
-  const URI = uri;
 
+function createDB(uri) {
+  const URI = uri;
   const pool = new Pool({
     connectionString: URI,
   });
-  
   return {
     query: (text, params, callback) => {
       console.log('executed query', text);
@@ -15,5 +13,4 @@ function createDB(uri){
     }
   };
 }
-module.exports =  createDB; 
- 
+module.exports = createDB;

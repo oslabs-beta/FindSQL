@@ -2,7 +2,8 @@
   "name": "osp-sqlgenerator",
   "version": "1.0.0",
   "description": "App that generates SQL queries and visually represents an entire database",
-  "main": "./src/index.js",
+  "private": true,
+  "main": "./electron/main.js",
   "scripts": {
     "build": "webpack",
     "start": "nodemon --delay 500ms server/server.js"
@@ -40,6 +41,9 @@
     "@babel/preset-env": "^7.15.6",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
+    "custom-electron-titlebar": "^3.2.7",
+    "electron": "^15.1.2",
+    "electron-builder": "^22.13.1",
     "nodemon": "^2.0.13",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",

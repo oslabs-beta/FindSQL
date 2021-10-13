@@ -1,3 +1,4 @@
+
 html, body {
   background-color: grey;
   font-size: .85vw;
@@ -85,3 +86,6 @@ button {
   /* text-overflow: ellipsis; */
 }
 
+nav {
+  background-color: tomato;
+}
