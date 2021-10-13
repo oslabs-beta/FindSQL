@@ -33,7 +33,7 @@ async function createWindow() {
 // opens window when the windows information is loaded
 app.whenReady().then(createWindow)
 
-// allows iOS stuff to be opened, otherwise quits the app
+// allows iOS stuff to be opened
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
