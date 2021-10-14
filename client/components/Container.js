@@ -47,11 +47,11 @@ export default function Container(props) {
   }
      
   globalQueryData = queryTableData;
-  
+ 
   function isOn(currentTable){
     const newArr = [];
-    for(let obj of globalQueryData){
-      if(obj.hasOwnProperty(currentTable)){
+    for(const obj of globalQueryData){
+      if(Object.prototype.hasOwnProperty.call(obj,currentTable)){
         obj[currentTable] = !obj[currentTable];
         newArr.push(obj); 
       } else {
@@ -65,8 +65,8 @@ export default function Container(props) {
   return (
     <div>
       <div className="inputURI">
-        <input id = "URI" type="text" placeholder="Your URI"/>
-        <button type="submit" onClick={() => getDatabase(document.getElementById('URI').value)}>Get Data</button>    
+        <input id="URI" type="text" placeholder="Your URI"/>
+        <button type="submit" onClick={() => getDatabase(document.getElementById('URI').value)}><img src="../assets/click.png"></img></button>    
       </div>
       <div>
         < QueryGenerator queryData = { queryTableData } />

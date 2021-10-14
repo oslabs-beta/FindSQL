@@ -8,6 +8,8 @@ const queryController = require('./queryController');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use('/assets', express.static(path.join(__dirname, '../client/assets')));
+
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
 app.get('/', (req, res) => {
