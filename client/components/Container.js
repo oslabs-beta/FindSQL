@@ -38,8 +38,8 @@ export default function Container(props) {
             arrTableNames.push(currentName);
           }
           updatedDatabase.push( <div className="card">
-          < Tables key={i} data={res[i]} isOn={isOn}/> 
-        </div>);
+            < Tables key={i} data={res[i]} isOn={isOn}/> 
+          </div>);
         }
         setQueryTableData(arrTableNames);
         setDatabase(updatedDatabase);
@@ -51,13 +51,13 @@ export default function Container(props) {
   function isOn(currentTable){
     const newArr = [];
     for(let obj of globalQueryData){
-        if(obj.hasOwnProperty(currentTable)){
-         obj[currentTable] = !obj[currentTable];
-         newArr.push(obj); 
-       } else {
-         newArr.push(obj);
-       }
-     }
+      if(obj.hasOwnProperty(currentTable)){
+        obj[currentTable] = !obj[currentTable];
+        newArr.push(obj); 
+      } else {
+        newArr.push(obj);
+      }
+    }
     setQueryTableData(newArr);
   }
 
