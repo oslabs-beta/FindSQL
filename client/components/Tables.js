@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Columns from './Columns';
 
-//{people: [columnData]}
-//function component for Columns
+
 export default function Tables(props) {
   const [table, setTable] = useState([]);
   const [data, setData] = useState(props.data);
   const [tableName, setTableName] = useState('');
-
-
+  
   useEffect(() => {
-    console.log('this is the table component', table);
-
     const key = Object.keys(data)[0];
     setTableName(key);
+    
 
     const updatedTable = [];
     data[key].forEach(col => {
@@ -25,11 +22,11 @@ export default function Tables(props) {
     });
     setTable(updatedTable);
   }, []);
-
+  
   return (
     <div>
       <div className="tableName">
-        { tableName }
+        <button className="tableButton" onClick={() => {props.isOn(tableName)}}>{ tableName }</button>
       </div>
       <div className="table">
         { table }
