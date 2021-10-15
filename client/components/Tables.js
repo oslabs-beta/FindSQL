@@ -3,33 +3,31 @@ import Columns from './Columns';
 
 
 export default function Tables(props) {
-  const [table, setTable] = useState([]);
-  const [data, setData] = useState(props.data);
+  const [columns, setColumns] = useState([]);
   const [tableName, setTableName] = useState('');
   
   useEffect(() => {
-    const key = Object.keys(data)[0];
+    const key = Object.keys(props.data)[0];
     setTableName(key);
     
-
     const updatedTable = [];
-    data[key].forEach(col => {
+    props.data[key].forEach(col => {
       updatedTable.push(
         <div className="column">
-          < Columns key={data[key].indexOf(col)} columns={col} />
+          < Columns key={props.data[key].indexOf(col)} columns={col}/>
         </div>
       );
     });
-    setTable(updatedTable);
+    setColumns(updatedTable);
   }, []);
   
   return (
     <div>
       <div className="tableName">
-        <button className="tableButton" onClick={() => {props.isOn(tableName)}}>{ tableName }</button>
+        <button className="tableButton" onClick={() => {props.isTableOn(tableName)}}>{ tableName }</button>
       </div>
       <div className="table">
-        { table }
+        { columns }
       </div>
     </div>
   );
