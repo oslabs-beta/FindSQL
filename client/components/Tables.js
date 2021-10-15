@@ -14,7 +14,7 @@ export default function Tables(props) {
     props.data[key].forEach(col => {
       updatedTable.push(
         <div className="column">
-          < Columns key={props.data[key].indexOf(col)} columns={col} />
+          < Columns key={props.data[key].indexOf(col)} columns={col}/>
         </div>
       );
     });
