@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import queryGeneratorFunction from '../queryGeneratorFunction.js';
 
 export default function queryGenerator(props) {
-  console.log(props.queryData);
-  //useEffect: anytime a value in the queryData changes (false/true), we want to reRender the query string
+   //useEffect: anytime a value in the queryData changes (false/true), we want to reRender the query string
   //define a basic function that generates a simple query string based on the data this component received
   const queryString = queryGeneratorFunction(props.queryData);
 
