@@ -73,6 +73,7 @@ queryController.getAllTables = async (req, res, next) => {
       // console.log(tableQuery);
       const response = await db.query(tableQuery);
       // push the data to tableData array
+      // console.log(response);
       tableData.push(response);
     }
     //create for loop to iterate through tableRows variable
