@@ -1,22 +1,35 @@
 html, body {
-  background-color: grey;
+  background-color: rgb(135, 135, 135);
   font-size: .85vw;
 }
 
-.inputURI {
+.inputURI, .copyURL {
   display: flex;
   justify-content: center;
   margin: 10px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 input {
   width: 50%;
   text-align: center;
-  font-size: clamp(10px, 4vw, 20px);
+  /* font-size: clamp(10px, 4vw, 20px); */
+  font-size: 10px;
+  background-color: white;
+  border:2px solid black;
+  border-radius: 50px; 
 }
 
 button {
   font-size: clamp(10px, 4vw, 20px);
+  background-color: white;
+  border:2px solid black;
+  border-radius: 50px; 
+  width: 30px;
+}
+
+img {
+  width: 100%;
 }
 
 .database {
@@ -33,6 +46,21 @@ button {
   text-align: center;
   overflow: hidden;
   
+}
+
+.queryStringContainer {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border:2px solid black;
+  border-radius: 50px; 
+  /* padding: 5px; */
+  width: 50%;
+  margin: auto;
+};
+
+.queryString {
+
 }
 
 .card {
