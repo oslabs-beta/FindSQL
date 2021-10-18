@@ -1,0 +1,11 @@
+type Query {
+    tableNames : [Table!]!
+}
+
+type Table {
+    tableName : String!
+    columns : [String!]
+    foreignkey : String!
+    foreignKeyColumn : String!
+}
+

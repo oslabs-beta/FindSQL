@@ -2,25 +2,6 @@ const createDB = require("./query.js");
 const { Pool } = require("pg");
 const { constants } = require("buffer");
 const queries = require("./queryString.js");
-const query = `SELECT * FROM pg_catalog.pg_tables
-WHERE schemaname != 'pg_catalog' AND
-schemaname != 'information_schema';`;
-
-const getForeignKeys = `
-select kcu.table_name as foreign_table,
-  rel_kcu.table_name as primary_table,
-  kcu.column_name as fk_column
-from information_schema.table_constraints tco
-join information_schema.key_column_usage kcu 
-  on tco.constraint_name = kcu.constraint_name
-join information_schema.referential_constraints rco 
-  on tco.constraint_name = rco.constraint_name
-join information_schema.key_column_usage rel_kcu 
-  on rco.unique_constraint_name = rel_kcu.constraint_name
-where tco.constraint_type = 'FOREIGN KEY'
-order by kcu.table_schema,
-  kcu.table_name,
-  kcu.ordinal_position;`;
 
 // declare query object that will later be exported
 const queryController = {};
@@ -64,6 +45,9 @@ queryController.getAllTables = async (req, res, next) => {
     // declare variables for the final result, and the table data
     const result = [];
     const tableData = [];
+
+    //gather full database column data
+    const completeDatabaseDataForColumns = [];
     // console.log(tableRows);
     // for loop to iterate through tableRows variable
     for (let i = 0; i < tableRows.length; i++) {
@@ -82,12 +66,14 @@ queryController.getAllTables = async (req, res, next) => {
         // declare variable for returned values and keys
         const returnVal = {};
         const keys = [];
+        // console.log(tableData[i].rows, "table to look at");
         // iterate through object pushing keys into key array
         for (const key in tableData[i].rows[0]) {
           keys.push(key);
         }
         // push tableRows current indice and the associated key array into returned object (returnVal)
         returnVal[tableRows[i]] = keys;
+        returnVal["columnData"] = tableData[i].rows;
         // push returnVal object into final return (result) array
         result.push(returnVal);
       }
