@@ -14,7 +14,7 @@ export default function Tables(props) {
     props.data[key].forEach(col => {
       updatedTable.push(
         <div className="column">
-          < Columns key={props.data[key].indexOf(col)} columns={col}/>
+          < Columns key={props.data[key].indexOf(col)} columns={col} tableName={key} isOn={props.isOn}/>
         </div>
       );
     });
@@ -24,7 +24,7 @@ export default function Tables(props) {
   return (
     <div>
       <div className="tableName">
-        <button className="tableButton" onClick={() => {props.isTableOn(tableName)}}>{ tableName }</button>
+        <button className="tableButton" onClick={() => {props.isOn(tableName)}}>{ tableName }</button>
       </div>
       <div className="table">
         { columns }

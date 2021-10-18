@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import queryGeneratorFunction from "../queryGeneratorFunction.js";
 
 export default function queryGenerator(props) {
+<<<<<<< HEAD
   //useEffect: anytime a value in the queryData changes (false/true), we want to reRender the query string
   //define a basic function that generates a simple query string based on the data this component received
   console.log(props.queryData);
@@ -9,6 +10,14 @@ export default function queryGenerator(props) {
 
   console.log(queryString);
   return (
+=======
+//useEffect: anytime a value in the queryData changes (false/true), we want to reRender the query string
+  //define a basic function that generates a simple query string based on the data this component received
+  const queryString = queryGeneratorFunction(props.queryRowData);
+  // console.log('tableData : ' + props);
+  // console.log(queryString); 
+  return(
+>>>>>>> development
     <div>
       <div className="inputURI">
         <button type="submit">
