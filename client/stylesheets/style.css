@@ -1,13 +1,32 @@
-html, body {
-  background-color: rgb(135, 135, 135);
-  font-size: .85vw;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.inputURI, .copyURL {
+html,
+body {
+  background-color: rgb(135, 135, 135);
+  font-size: 0.85vw;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.body-left {
+}
+
+.body-right {
+}
+.inputURI,
+.copyURL {
   display: flex;
   justify-content: center;
   margin: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 input {
@@ -16,15 +35,15 @@ input {
   /* font-size: clamp(10px, 4vw, 20px); */
   font-size: 10px;
   background-color: white;
-  border:2px solid black;
-  border-radius: 50px; 
+  border: 2px solid black;
+  border-radius: 50px;
 }
 
 button {
   font-size: clamp(10px, 4vw, 20px);
   background-color: white;
-  border:2px solid black;
-  border-radius: 50px; 
+  border: 2px solid black;
+  border-radius: 50px;
   width: 30px;
 }
 
@@ -45,22 +64,20 @@ img {
   padding: 8px;
   text-align: center;
   overflow: hidden;
-  
 }
 
 .queryStringContainer {
   display: flex;
   justify-content: center;
   background-color: white;
-  border:2px solid black;
-  border-radius: 50px; 
+  border: 2px solid black;
+  border-radius: 50px;
   /* padding: 5px; */
   width: 50%;
   margin: auto;
-};
+}
 
 .queryString {
-
 }
 
 .card {
@@ -73,13 +90,13 @@ img {
   background-color: rgb(232, 251, 246);
   margin: 10px 10px;
   vertical-align: top;
-  width: .8rem
+  width: 0.8rem;
 }
 
 .tableButton {
   max-width: 500px;
   min-width: 150px;
-  width: .8rem;
+  width: 0.8rem;
   background-color: rgb(232, 251, 246);
   border: none;
   border-radius: 5px;
@@ -95,7 +112,7 @@ img {
 .columnButton {
   max-width: 500px;
   min-width: 150px;
-  width: .8rem;
+  width: 0.8rem;
   background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
@@ -112,4 +129,3 @@ img {
   font-size: clamp(10px, 4vw, 20px);
   /* text-overflow: ellipsis; */
 }
-
