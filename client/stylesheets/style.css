@@ -11,7 +11,7 @@ html, body {
 }
 
 input {
-  width: 50%;
+  width: 100%;
   text-align: center;
   /* font-size: clamp(10px, 4vw, 20px); */
   font-size: 10px;
@@ -55,7 +55,7 @@ img {
   border:2px solid black;
   border-radius: 50px; 
   /* padding: 5px; */
-  width: 50%;
+  width: 100%;
   margin: auto;
 };
 
