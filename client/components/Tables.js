@@ -6,11 +6,10 @@ export default function Tables(props) {
   const [table, setTable] = useState([]);
   const [data, setData] = useState(props.data);
   const [tableName, setTableName] = useState('');
-  
+
   useEffect(() => {
     const key = Object.keys(data)[0];
     setTableName(key);
-    
 
     const updatedTable = [];
     data[key].forEach(col => {
@@ -22,14 +21,14 @@ export default function Tables(props) {
     });
     setTable(updatedTable);
   }, []);
-  
+
   return (
     <div>
       <div className="tableName">
-        <button className="tableButton" onClick={() => {props.isOn(tableName)}}>{ tableName }</button>
+        <button className="tableButton" onClick={() => { props.isOn(tableName) }}>{tableName}</button>
       </div>
       <div className="table">
-        { table }
+        {table}
       </div>
     </div>
   );
