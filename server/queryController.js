@@ -1,28 +1,24 @@
-const createDB = require('./query.js');
-const { Pool } = require('pg');
-
-const query = `SELECT * FROM pg_catalog.pg_tables
-WHERE schemaname != 'pg_catalog' AND
-schemaname != 'information_schema';`;
-
+const createDB = require("./query.js");
+const { Pool } = require("pg");
+const { constants } = require("buffer");
+const queries = require("./queryString.js");
 
 // declare query object that will later be exported
 const queryController = {};
 // declare query rows, that will later be filled with data, and then reset at the end of the get request
 let tableRows = [];
-queryController.databaseCreator = (req, res, next)=> {
+queryController.databaseCreator = (req, res, next) => {
   const { uri } = req.body;
   const db = createDB(uri);
-  res.locals.db = db; 
-  next(); 
+  res.locals.db = db;
+  next();
 };
 // query controller to get query
 queryController.getQuery = (req, res, next) => {
   const { db } = res.locals;
-
   try {
     // initiate the query
-    db.query(query)
+    db.query(queries.mainDB)
       .then((data) => {
         return data.rows;
       })
@@ -44,18 +40,20 @@ queryController.getQuery = (req, res, next) => {
 // take the data from table rows declared earlier and play with it
 queryController.getAllTables = async (req, res, next) => {
   const { db } = res.locals;
+  // console.log(private.fields);
   try {
     // declare variables for the final result, and the table data
     const result = [];
     const tableData = [];
-    console.log(tableRows);
     // for loop to iterate through tableRows variable
     for (let i = 0; i < tableRows.length; i++) {
       // declare query string for each tableRow's name
       const tableQuery = `SELECT * FROM ${tableRows[i]}`;
       // query database for all data in specified table
+      // console.log(tableQuery);
       const response = await db.query(tableQuery);
       // push the data to tableData array
+      // console.log(response);
       tableData.push(response);
     }
     //create for loop to iterate through tableRows variable
@@ -65,18 +63,21 @@ queryController.getAllTables = async (req, res, next) => {
         // declare variable for returned values and keys
         const returnVal = {};
         const keys = [];
+        // console.log(tableData[i].rows, "table to look at");
         // iterate through object pushing keys into key array
         for (const key in tableData[i].rows[0]) {
           keys.push(key);
         }
         // push tableRows current indice and the associated key array into returned object (returnVal)
         returnVal[tableRows[i]] = keys;
+        returnVal["columnData"] = tableData[i].rows;
         // push returnVal object into final return (result) array
         result.push(returnVal);
       }
     }
     //resets table rows
     tableRows = [];
+    // console.log(result);
     // console.log(result);
     res.locals.data = result;
     next();
@@ -88,6 +89,31 @@ queryController.getAllTables = async (req, res, next) => {
   }
 };
 
+queryController.getKeys = async (req, res, next) => {
+  const { db, data } = res.locals;
+  try {
+    //get table foreign key data
+    const foreign = await db.query(queries.foreignKeyQuery);
+    //iterate through data obj from get all tables
+    const newData = [];
+    for (let table of data) {
+      const tableName = Object.keys(table)[0];
+      for (let keyVals of foreign.rows) {
+        if (keyVals.primary_table === tableName) {
+          const tableKeyObj = {};
+          tableKeyObj.foreign_table = keyVals.foreign_table;
+          tableKeyObj.foreign_column = keyVals.fk_column;
+          table = Object.assign(table, tableKeyObj);
+        }
+      }
+    }
+    next();
+  } catch (err) {
+    return next({
+      err: `err inside getKeys Err = ${err}`,
+    });
+  }
+};
 // queryController.setResponseData = (req, res, next) => {
 //   console.log(res.locals.data, "anthony is here");
 // };
