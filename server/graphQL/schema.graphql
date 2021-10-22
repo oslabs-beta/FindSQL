@@ -1,23 +1,24 @@
 type Query {
-  profile: UserProfile!
-  fullProfile(id: ID!): UserProfile
-  projects(username: String!): [Project!]
+  getProfile(_id: ID!): UserProfile
+  getProjects(email: String!): [Project!]
 }
 
 type Mutation {
-  addProject(id: ID!, databaseQuery: String!): UserProfile
-  signup(email: String!, password: String!, name: String!): AuthPayload
+  addProject(
+    _id: ID!
+    databaseURI: String!
+    databaseQuery: String!
+  ): UserProfile
+  signup(email: String!, password: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
 }
 
 type AuthPayload {
-  token: String!
   user: UserProfile
 }
 type UserProfile {
-  username: String!
-  firstname: String!
-  lastname: String!
+  _id: ID!
+  email: String!
   password: String!
   projects: [Project]
 }

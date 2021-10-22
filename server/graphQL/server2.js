@@ -1,54 +1,12 @@
 const { ApolloServer } = require("apollo-server");
 const fs = require("fs");
 const path = require("path");
-
-const projectMaster = {
-  databaseURI: "heeeeeyoo",
-  databaseQueries: ["ffsfd", "sdfdfd", "divndk"],
-};
-// 1
-const users = {
-  username: "Carney23",
-  firstname: "Carney",
-  lastname: "Bernard",
-  password: "eufbwdejukfbdjkl",
-  projects: [
-    {
-      databaseURI: "wwww.findone.com",
-      databaseQueries: ["FIND sql WHERE join at fknkf", "JOIN LEFT OUTER"],
-    },
-    projectMaster,
-  ],
-};
-
-const ALLUSERS = [users];
-
+const Query = require("./resolvers/Query.js");
+const Mutation = require("./resolvers/Mutation");
 // 2
 const resolvers = {
-  Query: {
-    profile: () => ALLUSERS[0],
-    projects: (parent, args) => {
-      if (!args.username) return "Userid not found";
-      for (let user of ALLUSERS) {
-        if (args.username === user.username) {
-          return user.projects;
-        }
-      }
-      return "could not find data";
-    },
-    fullProfile: (parent, args) => {
-      for (const profile of ALLUSERS) {
-        if (profile.username === args.username) {
-          return profile;
-        }
-      }
-      return "cannot find";
-    },
-  },
-
-  Mutation: {
-    addProject: (parent, args) => {},
-  },
+  Query,
+  Mutation,
 };
 
 // 3

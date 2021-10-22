@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 
 const URI =
-  "mongodb+srv://carney:Codesmith123@cluster0.pymml.mongodb.net/Find+SQL?retryWrites=true&w=majority";
-
+  "mongodb+srv://carney:Rapids15@cluster0.pymml.mongodb.net/findsql?retryWrites=true&w=majority";
 mongoose
   .connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: "Find+SQL",
+    dbName: "findsql",
   })
   .then(() => {
     console.log("Mongo connected");
@@ -18,6 +17,18 @@ mongoose
 
 const Schema = mongoose.Schema;
 
-const User = new Schema({
-  username: { type: String, required: true },
+const userSchema = new Schema({
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  projects: [{ type: Schema.Types.ObjectId, ref: "Project" }],
 });
+
+const projectSchema = new Schema({
+  databaseURI: { type: String, required: true },
+  databaseQueries: [{ type: String, required: false }],
+});
+
+const User = mongoose.model("User", userSchema);
+const Project = mongoose.model("Project", projectSchema);
+
+module.exports = { User, Project };
