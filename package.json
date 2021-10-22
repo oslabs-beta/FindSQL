@@ -4,6 +4,7 @@
   "description": "App that generates SQL queries and visually represents an entire database",
   "main": "./src/index.js",
   "scripts": {
+    "graph": "node server/graphQL/server2.js",
     "build": "webpack",
     "start": "nodemon --delay 500ms server/server.js"
   },
@@ -19,6 +20,9 @@
   "homepage": "https://github.com/oslabs-beta/OSP-SQLgenerator#readme",
   "dependencies": {
     "@babel/preset-react": "^7.14.5",
+    "apollo-datasource-rest": "^3.3.0",
+    "apollo-server": "^3.4.0",
+    "apollo-server-express": "^3.4.0",
     "axios": "^0.22.0",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
@@ -28,6 +32,7 @@
     "express-graphql": "^0.12.0",
     "graphql": "^15.6.1",
     "html-webpack-plugin": "^5.3.2",
+    "mongoose": "^6.0.12",
     "path": "^0.12.7",
     "pg": "^8.7.1",
     "react": "^17.0.2",

@@ -16,9 +16,9 @@ export default function Sidebar(props) {
         if (colName === column) {
           //create element to render
           values.push(
-            <p onClick={() => isValueOn(keyValue[0], table, column)}>
+            <button onClick={() => isValueOn(keyValue[0], table, column)}>
               {keyValue[0]}
-            </p>
+            </button>
           );
         }
       }

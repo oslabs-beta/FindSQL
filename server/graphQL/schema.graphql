@@ -1,0 +1,28 @@
+type Query {
+  profile: UserProfile!
+  fullProfile(id: ID!): UserProfile
+  projects(username: String!): [Project!]
+}
+
+type Mutation {
+  addProject(id: ID!, databaseQuery: String!): UserProfile
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+}
+
+type AuthPayload {
+  token: String!
+  user: UserProfile
+}
+type UserProfile {
+  username: String!
+  firstname: String!
+  lastname: String!
+  password: String!
+  projects: [Project]
+}
+
+type Project {
+  databaseURI: String!
+  databaseQueries: [String!]
+}
