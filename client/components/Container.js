@@ -201,7 +201,6 @@ export default function Container(props) {
           <QueryGenerator queryRowData={queryRowData} />
         </div>
         <div className="database">{database}</div>
-        <div className="database">{database}</div>
       </div>
       <div className="body-right">
         <Sidebar isValueOn={isValueOn} data={queryRowData}></Sidebar>

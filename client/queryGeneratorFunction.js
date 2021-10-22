@@ -1,12 +1,11 @@
 export default function queryGeneratorFunction (queryRowData) {
-  // console.log('queryRowData from func: ' + queryRowData); // array of objects
-
+  
   let result = '';
  
-  const fullTableSelected = false; 
+  // const fullTableSelected = false; 
   //iterate through queryRowData array to see if any values are true
   //if any of query row elements are true we need to store data
-  // console.log('queryRowData: ' + queryRowData);
+  
   //[{species : false}]
   let countTable = 0; 
   let countRow = 0;
@@ -29,15 +28,17 @@ export default function queryGeneratorFunction (queryRowData) {
     //initialize an empty array to keep track of columnNames toggled true
     const selectedColumnNames = [];
     // ***** intialize an empty array to keep track of column values that were selected for the WHERE query
-    const selectedWhere = [];
+    
     //loop through queryRowData, if the obj['isSelected] === true, increment the counter.
     //if true, fill the tableName array with the tablename
     // ***** this for loop will handle finding all the values that are toggled: true, and this is where we'll likely grab the values for selectedWhere array
     for (let i = 0; i < queryRowData.length; i++) {
+      
       if (queryRowData[i].isSelected) {
         isSelectedCounter++;
         const tableName = Object.keys(queryRowData[i])[0];
         selectedTableNames.push(tableName);
+
         //loop through the columns of the tables in the array, if the column is toggled true, push the column name in to the columnNames array
         for (let j = 0; j < queryRowData[i][tableName].length; j++) {
           const columnName = Object.keys(queryRowData[i][tableName][j]);
@@ -48,11 +49,11 @@ export default function queryGeneratorFunction (queryRowData) {
         }
       }
     }
+
     //if the isSelected counter is greater than 1, go into another block of logic
     //for the simple outer join logic: check if selected ColumnNames array is length 2 AND the elements are equal
       //this is where we build out the query string
-    console.log('selected table names', selectedTableNames);
-    console.log('selected column names', selectedColumnNames);
+    
     if (selectedTableNames.length === 2 && selectedColumnNames.length % 2 === 0 && selectedColumnNames.length !== 0){
       // SELECT ${tableName1}.*, ${tableName2}.* FROM ${tableName1} FULL OUTER JOIN ${tableName2} ON ${tableName1}.${columnName} = ${tableName2}.${columnName}
       // return `SELECT ${selectedTableNames[0]}.*, ${selectedTableNames[1]}.* FROM ${selectedTableNames[0]} FULL OUTER JOIN ${selectedTableNames[1]} ON ${selectedTableNames[0]}.${selectedColumnNames[0]} = ${selectedTableNames[1]}.${selectedColumnNames[0]}`;
@@ -88,28 +89,63 @@ export default function queryGeneratorFunction (queryRowData) {
 
     return result;
   }else {
-    console.log('table check : ', table);
+    //****for handling the WHERE clause */
+    //initiate a for loop where we access specifically the "column_rows" key, and search for any column values that were toggled and push into an array 
+    const selectedWhere = [];
+    const selectedColName = [];
+    let whereTableName = '';
+    for(let i = 0; i < queryRowData.length; i++){
+      // every element in this array, is an object with a single key (represents a column name) {name: { Luke Skywalker: true }}
+      const colArr = queryRowData[i]['column_rows'];
+      const colTableName = Object.keys(queryRowData[i])[0];
+      colArr.forEach(colObj => {
+        let colName = Object.keys(colObj)[0];
+        const colVal = Object.keys(colObj[colName])[0];
+        if (colObj[colName][colVal] === true) {
+          selectedWhere.push(colVal);
+          selectedColName.push(colName);
+          whereTableName = colTableName;
+        }
+      });
+    }
+    const filteredWhere = removeDuplicates(selectedWhere);
+    const filteredColName = removeDuplicates(selectedColName);
     
+    if(filteredWhere.length > 0){
+      let whereClause = `WHERE `;
+      for(let i = 0; i < filteredWhere.length; i++){
+        // SELECT column FROM table WHERE colName = colVal AND colName = colVal
+        if(countWhere === 0){
+          // result += `SELECT ${filteredColName[i]} `; // better to use * instead of 
+          result += `SELECT * `;
+          whereClause += `${filteredColName[i]} = '${filteredWhere[i]}' `;
+          countWhere++;
+        }else{
+          // result += `, ${selectedColName[i]} `;
+          whereClause += `AND ${filteredColName[i]} = '${filteredWhere[i]}' `;
+          countWhere++;
+        }
+      }
+      return result + `FROM ${whereTableName} ` + whereClause;
+    }
     //if not, then we know that theyre executing something more complex and this block of code will contain different sets of logic to handle the different scenarios
     for (let i = 0; i < queryRowData.length; i++) {
       const key = Object.keys(queryRowData[i])[0]; // tablename
-      
+
       queryRowData[i][key].forEach(rowObj => {
         // if true, concatenate the 'row name' to result
-        const rowKey = Object.keys(rowObj)[0]; // rowname
 
+        const rowKey = Object.keys(rowObj)[0]; // rowname
         // if tablename changes, 
         // if key !== table && table !== '', reset result && countRow
-        // console.log('this is key：　', key);
-        // console.log('this is result：　', result);
-        // console.log('this is table: 　', table);
+        
         // table = key;
         if(rowObj[rowKey] === true){
-          // if(table !== key) {
-          //   countRow = 0;
-          //   result = '';
+          if(table !== key) {
+            countRow = 0;
+            result = '';
+          }
 
-          // }
           table = key;
 
           if(countRow === 0){
@@ -125,14 +161,7 @@ export default function queryGeneratorFunction (queryRowData) {
 
     if(result === '') return result;
 
-
-     // ***** for when we do the WHERE clause logic, we dont want to return result yet
     else return result += ` FROM ${table}`;
-     // ***** check our countWhere variable, and begin iterating through our selectedWhere array and concatenate the appropriate strings
-      //if the counter is at 0, we want to concat `WHERE ${rowKey} = ${selectedWhere value}`
-      //otherwise concat, ` AND ${rowKey} = ${selectedWhere Value}`
-    //once we finish iterating through the array of selectedWhere, return the result string
-    
   }
   
   // return result === 'SELECT ' ?  '' : result;
@@ -153,5 +182,10 @@ function returnDuplicates(arr){
   return duplicates;
 }
 
-// const test = [1,1,3,1,2,2];
-// console.log(returnDuplicates(test)); //[1]
+function removeDuplicates(arr){
+  const filtered = [];
+  arr.forEach(el => {
+    if(!filtered.includes(el)) filtered.push(el);
+  });
+  return filtered;
+}

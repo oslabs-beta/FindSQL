@@ -5,7 +5,8 @@ import Columns from './Columns';
 export default function Tables(props) {
   const [columns, setColumns] = useState([]);
   const [tableName, setTableName] = useState('');
-  
+  const [color, setColor] = useState('red');
+
   useEffect(() => {
     const key = Object.keys(props.data)[0];
     setTableName(key);
@@ -14,7 +15,7 @@ export default function Tables(props) {
     props.data[key].forEach(col => {
       updatedTable.push(
         <div className="column">
-          < Columns key={props.data[key].indexOf(col)} columns={col} tableName={key} isOn={props.isOn}/>
+          < Columns key={props.data[key].indexOf(col)} color={color} columns={col} tableName={key} isOn={props.isOn}/>
         </div>
       );
     });
@@ -24,7 +25,7 @@ export default function Tables(props) {
   return (
     <div>
       <div className="tableName">
-        <button className="tableButton" onClick={() => {props.isOn(tableName)}}>{ tableName }</button>
+        <button className="tableButton" onClick={() => {props.isOn(tableName)}} >{ tableName }</button>
       </div>
       <div className="table">
         { columns }

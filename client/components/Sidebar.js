@@ -18,7 +18,7 @@ export default function Sidebar(props) {
     for (let column of columnsToRender) {
       const tableName = column[0];
       const tableColumn = column[1];
-      sideTables.push(
+      sideTables.unshift(
         <SideTable
           isValueOn={props.isValueOn}
           table={tableName}
