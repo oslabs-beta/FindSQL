@@ -6,12 +6,29 @@ export default function queryGenerator(props) {
   //define a basic function that generates a simple query string based on the data this component received
   
   const queryString = queryGeneratorFunction(props.queryRowData);
+  //define a function for when we click the copy button
+  function sendQueryString(string){
+    //{querystring: { string }}
+    const query = { queryString : string };
+
+    // copies query string to clipboard
+    navigator.clipboard.writeText(string);
+
+    fetch('/query', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(query)
+    })
+      .then((res) => res.json())
+      .then((res) => console.log('query object sent to the backend', res));
+  }
   
-  // console.log(queryString);
   return (
     <div>
       <div className="inputURI">
-        <button type="submit">
+        <button type="submit" onClick={() => sendQueryString(document.getElementById('copyURL').value)}>
           <img src="../assets/copy.png"></img>
         </button>
         <input id="copyURL" type="text" value={ queryString } readOnly />

@@ -14,9 +14,9 @@ export default function Container(props) {
   // isRowOn boolean switches signifying whether a row in table name has be
   const [queryRowData, setQueryRowData] = useState([]);
   //table name : table columns set false
-
+  
   function getDatabase(uri) {
-    console.log(uri);
+    // console.log(uri);
 
     const myURI = {
       uri: uri,
@@ -31,7 +31,7 @@ export default function Container(props) {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res, "inside fetch req");
+        // console.log(res, "inside fetch req");
         //store all table names with columns in this array
         const updatedDatabase = [];
         //updating table name switches data
@@ -65,10 +65,16 @@ export default function Container(props) {
           }
           //this is where we build out all of the key/value pairs for the table object
           newTable[tableName] = newColumnArr;
-          newTable["isSelected"] = false;
-          newTable["foreign_table"] = res[i]["foreign_table"];
-          newTable["foreign_column"] = res[i]["foreign_column"];
-          newTable["column_rows"] = columnDataArray;
+          newTable['isSelected'] = false;
+          newTable['foreign_table'] = res[i]['foreign_table'];
+          newTable['foreign_column'] = res[i]['foreign_column'];
+          newTable['column_rows'] = columnDataArray;
+          newTable['column_rows'].forEach(rowObj => {
+            //{id: {5: false}}
+            const key = Object.keys(rowObj)[0];
+            rowObj[key]['color'] = 'black';
+          });
+          // console.log('this is column rows, ', newTable['column_rows'][0]);
           // push this element as the key into a new object and add a false value to it
           // push the tableName object into the tableswithcolumns array
 
@@ -77,7 +83,7 @@ export default function Container(props) {
 
           updatedDatabase.push(
             <div className="card">
-              <Tables key={i} data={res[i]} isOn={isOn} />
+              <Tables key={i} data={res[i]} isOn={isOn}/>
             </div>
           );
         }
@@ -89,6 +95,7 @@ export default function Container(props) {
 
   globalQueryRowData = queryRowData;
   function isRowOn(currentTableString, currentRowString) {
+   
     const newTableArr = [];
     for (const obj of globalQueryRowData) {
       if (Object.prototype.hasOwnProperty.call(obj, currentTableString)) {
@@ -144,7 +151,12 @@ export default function Container(props) {
   //this function is to completely rebuild the queryRowData
   //from scratch. We are dealing with nested objects so the implementation
   //is tedious
-  function isValueOn(valueName, valueTable, valueColumn) {
+  function isValueOn(valueName, valueTable, valueColumn, valueColor) {
+    // if(valueColor === 'black'){
+    //   valueColor = 'red';
+    // }else{
+    //   valueColor = 'black';
+    // }
     const newQueryRowData = [];
     //iterate through data array and find correct tbale name
     for (let table of queryRowData) {
@@ -154,16 +166,26 @@ export default function Container(props) {
         const newObjForTableName = Object.assign(table, {});
 
         const newValuesForColumns = [];
-        for (let values of table["column_rows"]) {
+        for (let values of table['column_rows']) {
           //grab column name
           const columnNameToFind = Object.keys(values)[0];
+
           //compare value to passed in value to find right column name
           if (columnNameToFind === valueColumn) {
-            // console.log(values[columnNameToFind]);
+
             const changeVal = Object.keys(values[columnNameToFind])[0];
+            
             if (changeVal === valueName) {
+              
               values[columnNameToFind][changeVal] =
                 !values[columnNameToFind][changeVal];
+              // console.log('isValueOn',values[columnNameToFind]);
+              if (values[columnNameToFind]['color'] === 'black') {
+                values[columnNameToFind]['color'] = 'red';
+              } else {
+                values[columnNameToFind]['color'] = 'black';
+              }
+              
               newValuesForColumns.push(values);
             } else {
               newValuesForColumns.push(values);
@@ -192,7 +214,7 @@ export default function Container(props) {
           <input id="URI" type="text" placeholder="Your URI" />
           <button
             type="submit"
-            onClick={() => getDatabase(document.getElementById("URI").value)}
+            onClick={() => getDatabase(document.getElementById('URI').value)}
           >
             <img src="../assets/click.png"></img>
           </button>

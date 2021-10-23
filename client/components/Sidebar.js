@@ -3,7 +3,8 @@ import SideTable from "./SideTable";
 
 export default function Sidebar(props) {
   //iterate through data and check if any rows are highlighted
-  const columnsToRender = [];
+  let columnsToRender = [];
+
   for (let table of props.data) {
     const tableName = Object.keys(table)[0];
     for (let value of table[tableName]) {
@@ -13,6 +14,7 @@ export default function Sidebar(props) {
       }
     }
   }
+
   const sideTables = [];
   if (columnsToRender.length) {
     for (let column of columnsToRender) {
