@@ -59,7 +59,6 @@ async function addProject(parent, args) {
     user.projects.push(project);
     await user.save();
   } else {
-    console.log("here on line 59");
     const updatedProject = await models.Project.findOne({
       user_id: args._id,
       databaseURI: args.databaseURI,
