@@ -1,11 +1,11 @@
 type Query {
-  getProfile(_id: ID!): UserProfile
+  getProfile(_id: String!, email: String!): UserProfile!
   getProjects(email: String!): [Project!]
 }
 
 type Mutation {
   addProject(
-    _id: ID!
+    _id: String!
     databaseURI: String!
     databaseQuery: String!
   ): UserProfile
@@ -17,8 +17,8 @@ type AuthPayload {
   user: UserProfile
 }
 type UserProfile {
-  _id: ID!
-  email: String!
+  _id: String
+  email: String
   password: String!
   projects: [Project]
 }
@@ -26,4 +26,5 @@ type UserProfile {
 type Project {
   databaseURI: String!
   databaseQueries: [String!]
+  user_id: String!
 }

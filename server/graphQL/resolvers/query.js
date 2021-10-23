@@ -1,15 +1,12 @@
 const models = require("../database.js");
 
 async function getProfile(parent, args) {
-  const user = await models.User.findOne({ email: args.email });
-  console.log(user);
+  const user = await models.User.findOne({ _id: args._id, email: args.email });
   if (!user) {
     throw new Error("User not found");
   }
 
-  return {
-    user,
-  };
+  return user;
 }
 
 async function getProjects(parent, args) {
@@ -22,8 +19,6 @@ async function getProjects(parent, args) {
 
   const projects = user.projects;
 
-  return {
-    projects,
-  };
+  return projects;
 }
 module.exports = { getProfile, getProjects };

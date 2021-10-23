@@ -12,9 +12,7 @@ async function signup(parent, args) {
   });
 
   // const token = jwt.sign({id : newUser._id}, APPSECRET);
-  return {
-    user: newUser,
-  };
+  return newUser;
 }
 
 async function login(parent, args) {
@@ -25,29 +23,36 @@ async function login(parent, args) {
   }
 
   // const token = jwt.sign({id : newUser._id}, APPSECRET);
-  return {
-    user,
-  };
+  return user;
 }
 async function addProject(parent, args) {
   //find user through email,
-  const user = await models.User.findOne({ _id: args._id });
+  const user = await models.User.findById({ _id: args._id });
   //if user doesnt exist throw error
-  if (user.length === 0) {
+
+  if (!user) {
     throw new Error("User not found");
   }
+  if (user.projects.length === 0) {
+    const project = await models.Project.create({
+      databaseURI: args.databaseURI,
+      databaseQuery: args.databaseQuery,
+      user_id: args._id,
+    });
 
-  const project = await models.User.projects.findOne({ databaseURI: args.uri });
-  if (project.length === 0) {
-    throw new Error("Project not found");
+    if (!project) {
+      throw new Error("Project not found");
+    }
+
+    //push new string into project
+    user.projects.push(project);
+    await user.save();
+  } else {
+    console.log("here");
   }
-
-  //push new string into project
-  project.databaseQueries.push(args.databaseQuery);
-
-  return {
-    user,
-  };
+  const updatedUser = await models.User.findById({ _id: args._id });
+  console.log(updatedUser.projects);
+  return updatedUser;
 }
 
 module.exports = {

@@ -26,6 +26,7 @@ const userSchema = new Schema({
 const projectSchema = new Schema({
   databaseURI: { type: String, required: true },
   databaseQueries: [{ type: String, required: false }],
+  user_id: { type: String, required: true },
 });
 
 const User = mongoose.model("User", userSchema);
