@@ -25,7 +25,7 @@ const userSchema = new Schema({
 
 const projectSchema = new Schema({
   databaseURI: { type: String, required: true },
-  databaseQueries: [{ type: String, required: false }],
+  databaseQueries: [String],
   user_id: { type: String, required: true },
 });
 

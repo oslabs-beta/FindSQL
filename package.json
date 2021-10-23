@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/oslabs-beta/OSP-SQLgenerator#readme",
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@babel/preset-react": "^7.14.5",
     "apollo-datasource-rest": "^3.3.0",
     "apollo-server": "^3.4.0",

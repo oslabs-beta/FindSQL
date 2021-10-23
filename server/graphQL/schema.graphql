@@ -9,12 +9,13 @@ type Mutation {
     databaseURI: String!
     databaseQuery: String!
   ): UserProfile
+  deleteProject(user_id: String!, databaseURI: String!): UserProfile
   signup(email: String!, password: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
 }
 
 type AuthPayload {
-  user: UserProfile
+  user: UserProfile!
 }
 type UserProfile {
   _id: String
