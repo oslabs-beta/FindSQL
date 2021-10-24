@@ -29,16 +29,22 @@ async function signup(parent, args) {
   };
 }
 
-async function login(parent, args) {
-  console.log("here in login");
+async function login(parent, args, res) {
   const user = await models.User.findOne({ email: args.email });
-  const valid = await bcrypt.compare(args.password, user.password);
-  console.log(args.password);
-  if (!valid) {
-    throw new Error("Invalid password");
+
+  if (!user) {
+    throw new Error(
+      "Email address not found. Please try again or use new email address."
+    );
   }
 
-  const token = jwt.sign({ id: newUser._id }, APPSECRET);
+  const valid = await bcrypt.compare(args.password, user.password);
+  if (!valid) {
+    throw new Error("Invalid password. Please try again");
+  }
+
+  const token = jwt.sign({ id: user._id }, APP_SECRET);
+
   return {
     user: user,
     token: token,

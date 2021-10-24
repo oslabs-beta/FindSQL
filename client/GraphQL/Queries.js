@@ -35,6 +35,7 @@ const SIGN_UP_LINK_MUTATION = gql`
           databaseQueries
         }
       }
+      token
     }
   }
 `;
@@ -50,6 +51,7 @@ const LOGIN_MUTATION_LINK = gql`
           databaseQueries
         }
       }
+      token
     }
   }
 `;

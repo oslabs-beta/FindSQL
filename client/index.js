@@ -8,6 +8,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from "@apollo/client";
+import { CookiesProvider } from "react-cookie";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:4000",
@@ -20,7 +21,9 @@ const client = new ApolloClient({
 
 render(
   <ApolloProvider client={client}>
-    <App />
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </ApolloProvider>,
   document.querySelector("#app")
 );

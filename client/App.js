@@ -6,6 +6,7 @@ import Login from "./components/Login.js";
 import { useMutation, gql } from "@apollo/client";
 import queries from "./GraphQL/Queries.js";
 import hooks from "./GraphQL/ApolloClientHooks.js";
+import { useCookies } from "react-cookie";
 
 export default function App() {
   //conditionally render container vs login page
@@ -14,8 +15,12 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState("");
   const [userProjects, setUserProjects] = useState([]);
-  const [cookie, setCookie] = useState("");
+  const [cookie, setCookie] = useCookies(["user"]);
   //payload to be invoked with login mutation query
+
+  //once component is mounted check if there is already a login cookie set
+  useEffect(() => {});
+
   const [userLogin] = useMutation(queries.LOGIN_MUTATION_LINK, {
     variables: {
       email: email,
@@ -24,6 +29,7 @@ export default function App() {
     onCompleted: (data) => {
       setUserId(data.login.user._id);
       setUserProjects(data.login.projects);
+      setCookie("user", data.login.token, { expires: 3600 });
       SetUserLogin(true);
     },
   });
@@ -36,6 +42,7 @@ export default function App() {
     onCompleted: (data) => {
       setUserId(data.login.user._id);
       setUserProjects(data.login.projects);
+      setCookie("user", data.login.token, { expires: 3600 });
       SetUserLogin(true);
     },
   });

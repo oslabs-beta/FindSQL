@@ -16,7 +16,7 @@ type Mutation {
 
 type AuthPayload {
   user: UserProfile!
-  token: String
+  token: String!
 }
 type UserProfile {
   _id: String
