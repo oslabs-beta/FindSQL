@@ -15,7 +15,7 @@ export default function Authentication(props) {
         encryptPassword
         email={props.email}
         password={props.password}
-        logUserIn={props.logUserIn}
+        signUserUp={props.signUserUp}
         getLoginPage={getLoginPage}
       ></SignUp>
     );

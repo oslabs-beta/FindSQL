@@ -1,6 +1,9 @@
 const models = require("../database.js");
 const bcrypt = require("bcrypt");
 const { model } = require("mongoose");
+const { isCompositeType } = require("graphql");
+const APP_SECRET = "OSP_DARREN_JUNE_ANTHONY_CARNEY";
+const jwt = require("jsonwebtoken");
 //mutation functionality to create/update/delete a user, create / update/delete a project
 
 async function signup(parent, args) {
@@ -19,21 +22,27 @@ async function signup(parent, args) {
     password: password,
   });
 
-  // const token = jwt.sign({id : newUser._id}, APPSECRET);
+  const token = jwt.sign({ id: newUser._id }, APP_SECRET);
   return {
     user: newUser,
+    token: token,
   };
 }
 
 async function login(parent, args) {
+  console.log("here in login");
   const user = await models.User.findOne({ email: args.email });
   const valid = await bcrypt.compare(args.password, user.password);
+  console.log(args.password);
   if (!valid) {
     throw new Error("Invalid password");
   }
 
-  // const token = jwt.sign({id : newUser._id}, APPSECRET);
-  return user;
+  const token = jwt.sign({ id: newUser._id }, APPSECRET);
+  return {
+    user: user,
+    token: token,
+  };
 }
 async function addProject(parent, args) {
   //find user through email,
