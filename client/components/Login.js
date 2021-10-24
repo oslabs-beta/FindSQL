@@ -12,7 +12,7 @@ export default function Login(props) {
   }
   return (
     <div>
-      <h1>Here is a login page</h1>
+      <h1>Here is a login form</h1>
       <form>
         <input
           type="text"

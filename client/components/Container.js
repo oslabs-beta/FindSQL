@@ -17,7 +17,6 @@ export default function Container(props) {
 
   function getDatabase(uri) {
     console.log(uri);
-
     const myURI = {
       uri: uri,
     };

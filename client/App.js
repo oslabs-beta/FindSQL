@@ -3,6 +3,7 @@ import Authentication from "./components/Authentication.js";
 import Container from "./components/Container";
 // import { ThemeProvider } from './components/ThemeContext';
 import Login from "./components/Login.js";
+import queries from "./GraphQL/Queries.js";
 
 export default function App() {
   //conditionally render container vs login page
@@ -10,12 +11,14 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //verify auth details currently held
   let itemToRender;
   if (isLoggedIn) {
     itemToRender = <Container email={email}></Container>;
   } else {
     itemToRender = (
       <Authentication
+        checkAuthCookieDetails={checkAuthCookieDetails}
         onEmailChange={onEmailChange}
         onPasswordChange={onPasswordChange}
         logUserIn={logUserIn}
@@ -25,8 +28,9 @@ export default function App() {
     );
   }
 
+  function checkAuthCookieDetails() {}
   function logUserIn() {
-    //make graphql query
+    //make graphql login mutation
     SetUserLogin(true);
     //if response has correct data change login to true
   }
