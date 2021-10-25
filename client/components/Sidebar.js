@@ -32,7 +32,10 @@ export default function Sidebar(props) {
   }
   return (
     <div>
-      <h1>Hello Everyone</h1>
+      <h2>
+        Hello, <span>{props.email}</span>
+      </h2>
+      <button onClick={props.logUserOut}>Log Out</button>
       {sideTables}
     </div>
   );
