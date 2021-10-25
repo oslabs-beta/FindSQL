@@ -4,6 +4,7 @@
   "description": "App that generates SQL queries and visually represents an entire database",
   "main": "./src/index.js",
   "scripts": {
+    "graph": "node server/graphQL/server2.js",
     "build": "webpack",
     "start": "nodemon --delay 500ms server/server.js"
   },
@@ -18,8 +19,13 @@
   },
   "homepage": "https://github.com/oslabs-beta/OSP-SQLgenerator#readme",
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@babel/preset-react": "^7.14.5",
+    "apollo-datasource-rest": "^3.3.0",
+    "apollo-server": "^3.4.0",
+    "apollo-server-express": "^3.4.0",
     "axios": "^0.22.0",
+    "bcrypt": "^5.0.1",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
@@ -27,11 +33,15 @@
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.6.1",
+    "graphql-tag": "^2.12.5",
     "html-webpack-plugin": "^5.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
     "path": "^0.12.7",
     "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-axios": "^2.0.5",
+    "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "stream-browserify": "^3.0.0",
     "webpack-dev-server": "^4.3.1",
@@ -49,6 +59,7 @@
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.0",
     "webpack": "^5.56.1",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "webpack-graphql-loader": "^1.0.2"
   }
 }

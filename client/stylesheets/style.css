@@ -30,7 +30,7 @@ body {
 }
 
 input {
-  width: 50%;
+  width: 100%;
   text-align: center;
   /* font-size: clamp(10px, 4vw, 20px); */
   font-size: 10px;
@@ -42,10 +42,13 @@ input {
 button {
   font-size: clamp(10px, 4vw, 20px);
   background-color: white;
-  border: 2px solid black;
   border-radius: 50px;
   width: 30px;
 }
+
+/* button:focus {
+  border: 1px solid red;
+} */
 
 img {
   width: 100%;
@@ -73,7 +76,7 @@ img {
   border: 2px solid black;
   border-radius: 50px;
   /* padding: 5px; */
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
