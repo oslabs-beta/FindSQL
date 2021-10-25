@@ -1,0 +1,34 @@
+type Query {
+  getProfile(_id: String!, email: String!): UserProfile!
+  getProjects(email: String!): [Project!]
+}
+
+type Mutation {
+  addProject(
+    _id: String!
+    databaseURI: String!
+    databaseQuery: String!
+  ): UserProfile
+  deleteProject(user_id: String!, databaseURI: String!): UserProfile
+  signup(email: String!, password: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  checkTokenAuth(token: String!): AuthPayload
+}
+
+type AuthPayload {
+  user: UserProfile!
+  token: String!
+  loggedIn: Boolean!
+}
+type UserProfile {
+  _id: String
+  email: String
+  password: String!
+  projects: [Project]
+}
+
+type Project {
+  databaseURI: String!
+  databaseQueries: [String!]
+  user_id: String!
+}
