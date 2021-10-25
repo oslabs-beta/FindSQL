@@ -366,7 +366,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ queryGenerator)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _queryGeneratorFunction_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../queryGeneratorFunction.js */ \"./client/queryGeneratorFunction.js\");\n/* harmony import */ var _queryGeneratorFunction_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_queryGeneratorFunction_js__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction queryGenerator(props) {\n  console.log(props.queryData); //useEffect: anytime a value in the queryData changes (false/true), we want to reRender the query string\n  //define a basic function that generates a simple query string based on the data this component received\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h3\", null, \"This is the query genarator\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", null, _queryGeneratorFunction_js__WEBPACK_IMPORTED_MODULE_1___default()(props.queryData)));\n}\n\n//# sourceURL=webpack://osp-sqlgenerator/./client/components/QueryGenerator.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ queryGenerator)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _queryGeneratorFunction_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../queryGeneratorFunction.js */ \"./client/queryGeneratorFunction.js\");\n\n\nfunction queryGenerator(props) {\n  console.log(props.queryData); //useEffect: anytime a value in the queryData changes (false/true), we want to reRender the query string\n  //define a basic function that generates a simple query string based on the data this component received\n\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h3\", null, \"This is the query genarator\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", null, (0,_queryGeneratorFunction_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(props.queryData)));\n}\n\n//# sourceURL=webpack://osp-sqlgenerator/./client/components/QueryGenerator.js?");
 
 /***/ }),
 
@@ -396,9 +396,10 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /*!******************************************!*\
   !*** ./client/queryGeneratorFunction.js ***!
   \******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("\n\n//# sourceURL=webpack://osp-sqlgenerator/./client/queryGeneratorFunction.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ queryGeneratorFunction)\n/* harmony export */ });\nfunction queryGeneratorFunction(queryData) {\n  // find the objectkey that has a true value\n  for (var i = 0; i < queryData.lenght; i++) {\n    if (queryData[i]) {\n      return \"SELECT * FROM \".concat(queryData[i]);\n    }\n  }\n}\n;\n\n//# sourceURL=webpack://osp-sqlgenerator/./client/queryGeneratorFunction.js?");
 
 /***/ }),
 
