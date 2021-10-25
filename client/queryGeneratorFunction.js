@@ -108,7 +108,7 @@ export default function queryGeneratorFunction (queryRowData) {
     // const filteredWhere = removeDuplicates(selectedWhere);
     // const filteredColName = removeDuplicates(selectedColName);
     selectedWhere.sort();
-    console.log('selectedWhere: ' + selectedWhere);
+    // console.log('selectedWhere: ' + selectedWhere);
     if(selectedWhere.length > 0){
       let whereClause = 'WHERE ';
       
