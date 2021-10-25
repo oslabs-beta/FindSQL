@@ -68,7 +68,21 @@ const DELETE_MUTATION_LINK = gql`
     }
   }
 `;
-
+const CHECK_TOKEN_MUTATIONS_LINK = gql`
+  mutation ($token: String!) {
+    checkTokenAuth(token: $token) {
+      loggedIn
+      user {
+        _id
+        email
+        projects {
+          databaseURI
+          databaseQueries
+        }
+      }
+    }
+  }
+`;
 const ADD_PROJECT_MUTATION_LINK = ``;
 
 const queries = {
@@ -78,6 +92,7 @@ const queries = {
   LOGIN_MUTATION_LINK,
   DELETE_MUTATION_LINK,
   ADD_PROJECT_MUTATION_LINK,
+  CHECK_TOKEN_MUTATIONS_LINK,
 };
 
 export default queries;

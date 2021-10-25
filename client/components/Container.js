@@ -4,6 +4,7 @@ import QueryGenerator from "./QueryGenerator";
 import axios from "axios";
 import { json } from "body-parser";
 import Sidebar from "./Sidebar";
+import { useMutation, gql } from "@apollo/client";
 
 // postgres://hdyovvhb:AdLaNCcnn6hQ939_Hq1ba44_qTfnEdUN@chunee.db.elephantsql.com/hdyovvhb
 let globalQueryRowData;

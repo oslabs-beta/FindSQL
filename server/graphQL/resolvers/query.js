@@ -10,7 +10,6 @@ async function getProfile(parent, args) {
 }
 
 async function getProjects(parent, args) {
-  console.log("herrrrrr");
   const user = await models.User.findOne({ email: args.email });
   console.log(user);
   if (!user) {

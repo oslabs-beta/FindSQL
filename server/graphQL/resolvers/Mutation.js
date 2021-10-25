@@ -26,6 +26,7 @@ async function signup(parent, args) {
   return {
     user: newUser,
     token: token,
+    loggedIn: true,
   };
 }
 
@@ -48,6 +49,7 @@ async function login(parent, args, res) {
   return {
     user: user,
     token: token,
+    loggedIn: true,
   };
 }
 async function addProject(parent, args) {
@@ -120,9 +122,35 @@ async function deleteProject(parent, args) {
   return finalUserObj;
 }
 
+async function checkTokenAuth(parent, args) {
+  const { token } = args;
+
+  if (token) {
+    const verify = jwt.verify(token, APP_SECRET);
+
+    if (verify) {
+      const getIdFromToken = jwt.decode(token);
+
+      const user = await models.User.findById({ _id: getIdFromToken.id });
+
+      return {
+        user,
+        token,
+        loggedIn: true,
+      };
+    } else {
+      throw new Error("Please send a valid Authentication Token");
+    }
+  } else {
+    throw new Error("Please send a valid Authentication Token");
+  }
+  return userHasBeenLoggedIn;
+}
+
 module.exports = {
   signup,
   login,
   addProject,
   deleteProject,
+  checkTokenAuth,
 };
