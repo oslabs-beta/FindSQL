@@ -62,9 +62,9 @@ export default function App() {
       password: password,
     },
     onCompleted: (data) => {
-      setUserId(data.login.user._id);
-      setUserProjects(data.login.projects);
-      setCookie("user", data.login.token, { expires: 3600 });
+      setUserId(data.signup.user._id);
+      setUserProjects(data.signup.projects);
+      setCookie("user", data.signup.token, { maxAge: 3600 });
       SetUserLogin(true);
     },
   });
