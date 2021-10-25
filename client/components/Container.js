@@ -4,6 +4,7 @@ import QueryGenerator from "./QueryGenerator";
 import axios from "axios";
 import { json } from "body-parser";
 import Sidebar from "./Sidebar";
+import { useMutation, gql } from "@apollo/client";
 
 // postgres://hdyovvhb:AdLaNCcnn6hQ939_Hq1ba44_qTfnEdUN@chunee.db.elephantsql.com/hdyovvhb
 let globalQueryRowData;
@@ -14,7 +15,7 @@ export default function Container(props) {
   // isRowOn boolean switches signifying whether a row in table name has be
   const [queryRowData, setQueryRowData] = useState([]);
   //table name : table columns set false
-  
+
   function getDatabase(uri) {
     // console.log(uri);
 
@@ -65,14 +66,14 @@ export default function Container(props) {
           }
           //this is where we build out all of the key/value pairs for the table object
           newTable[tableName] = newColumnArr;
-          newTable['isSelected'] = false;
-          newTable['foreign_table'] = res[i]['foreign_table'];
-          newTable['foreign_column'] = res[i]['foreign_column'];
-          newTable['column_rows'] = columnDataArray;
-          newTable['column_rows'].forEach(rowObj => {
+          newTable["isSelected"] = false;
+          newTable["foreign_table"] = res[i]["foreign_table"];
+          newTable["foreign_column"] = res[i]["foreign_column"];
+          newTable["column_rows"] = columnDataArray;
+          newTable["column_rows"].forEach((rowObj) => {
             //{id: {5: false}}
             const key = Object.keys(rowObj)[0];
-            rowObj[key]['color'] = 'black';
+            rowObj[key]["color"] = "black";
           });
           // console.log('this is column rows, ', newTable['column_rows'][0]);
           // push this element as the key into a new object and add a false value to it
@@ -83,7 +84,7 @@ export default function Container(props) {
 
           updatedDatabase.push(
             <div className="card">
-              <Tables key={i} data={res[i]} isOn={isOn}/>
+              <Tables key={i} data={res[i]} isOn={isOn} />
             </div>
           );
         }
@@ -95,7 +96,6 @@ export default function Container(props) {
 
   globalQueryRowData = queryRowData;
   function isRowOn(currentTableString, currentRowString) {
-   
     const newTableArr = [];
     for (const obj of globalQueryRowData) {
       if (Object.prototype.hasOwnProperty.call(obj, currentTableString)) {
@@ -166,26 +166,24 @@ export default function Container(props) {
         const newObjForTableName = Object.assign(table, {});
 
         const newValuesForColumns = [];
-        for (let values of table['column_rows']) {
+        for (let values of table["column_rows"]) {
           //grab column name
           const columnNameToFind = Object.keys(values)[0];
 
           //compare value to passed in value to find right column name
           if (columnNameToFind === valueColumn) {
-
             const changeVal = Object.keys(values[columnNameToFind])[0];
-            
+
             if (changeVal === valueName) {
-              
               values[columnNameToFind][changeVal] =
                 !values[columnNameToFind][changeVal];
               // console.log('isValueOn',values[columnNameToFind]);
-              if (values[columnNameToFind]['color'] === 'black') {
-                values[columnNameToFind]['color'] = 'red';
+              if (values[columnNameToFind]["color"] === "black") {
+                values[columnNameToFind]["color"] = "red";
               } else {
-                values[columnNameToFind]['color'] = 'black';
+                values[columnNameToFind]["color"] = "black";
               }
-              
+
               newValuesForColumns.push(values);
             } else {
               newValuesForColumns.push(values);
@@ -214,7 +212,7 @@ export default function Container(props) {
           <input id="URI" type="text" placeholder="Your URI" />
           <button
             type="submit"
-            onClick={() => getDatabase(document.getElementById('URI').value)}
+            onClick={() => getDatabase(document.getElementById("URI").value)}
           >
             <img src="../assets/click.png"></img>
           </button>
