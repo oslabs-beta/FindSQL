@@ -1,13 +1,13 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development',  
-  entry: path.resolve(__dirname, './client/index.js'),
+  mode: "development",
+  entry: path.resolve(__dirname, "./client/index.js"),
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
-    publicPath: '/',
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -15,39 +15,44 @@ module.exports = {
         test: /\.jsx?/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
         },
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
-    ]
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: "graphql-tag/loader",
+      },
+    ],
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'client')
+      directory: path.join(__dirname, "client"),
     },
     compress: true,
     port: 8080,
     proxy: {
-      '/api/*': 'http://localhost:3000',
+      "/api/*": "http://localhost:3000",
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/index.html',
-      filename: 'index.html'
-    })
+      template: "./client/index.html",
+      filename: "index.html",
+    }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
   },
 };
