@@ -36,7 +36,7 @@ export default function Sidebar(props) {
         Hello, <span>{props.email}</span>
       </h2>
       <button onClick={props.logUserOut}>Log Out</button>
-          {sideTables}
+      {sideTables}
     </div>
   );
 }
