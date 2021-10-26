@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "App that generates SQL queries and visually represents an entire database",
   "private": true,
-  "main": "./electron/main.js",
+  "main": "./server/server.js",
   "scripts": {
     "graph": "node server/graphQL/server2.js",
     "build": "webpack",
-    "start": "electron-forge start"
+    "start": "node ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -43,24 +43,19 @@
     "pg": "^8.7.1",
     "process": "^0.11.10",
     "react": "^17.0.2",
-    "react-axios": "^2.0.5",
     "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "stream-browserify": "^3.0.0",
     "util": "^0.12.4",
-    "webpack-dev-server": "^4.3.1",
-    "zlib": "^1.0.5"
+    "webpack-dev-server": "^4.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
     "@babel/node": "^7.15.4",
     "@babel/preset-env": "^7.15.6",
-    "@electron-forge/cli": "^6.0.0-beta.61",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
-    "electron": "^15.3.0",
-    "electron-rebuild": "^3.2.3",
     "nodemon": "^2.0.13",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
