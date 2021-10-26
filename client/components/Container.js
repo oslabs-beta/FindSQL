@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Tables from "./Tables";
 import QueryGenerator from "./QueryGenerator";
-import axios from "axios";
 import { json } from "body-parser";
 import Sidebar from "./Sidebar";
 import { useMutation, gql } from "@apollo/client";
