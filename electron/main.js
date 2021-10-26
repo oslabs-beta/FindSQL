@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const server = require('../server/server')
+const graphboy = require('../server/graphQL/server2')
 
 //function to create a window and sets defaults params
 async function createWindow() {
