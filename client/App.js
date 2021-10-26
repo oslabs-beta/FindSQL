@@ -8,6 +8,13 @@ import queries from "./GraphQL/Queries.js";
 import { useCookies } from "react-cookie";
 
 export default function App() {
+<<<<<<< HEAD
+  return (
+    <div>
+      <Container />
+    </div>
+  );
+=======
   //conditionally render container vs login page
   const [isLoggedIn, SetUserLogin] = useState(false);
   const [email, setEmail] = useState("");
@@ -124,4 +131,5 @@ export default function App() {
   }
 
   return <div>{itemToRender}</div>;
+>>>>>>> b56c6eea9c9a96fcfd8a92b5a28309e209db1943
 }
