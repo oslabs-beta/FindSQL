@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import myLogo from "../assets/findsqlV3.png";
 
 export default function SignUp(props) {
   let passwordToDisplay = props.password;
@@ -10,6 +11,9 @@ export default function SignUp(props) {
   //     }
   //     passwordToDisplay = outputPassword;
   //   }
+
+  // <img src={myLogo} alt="Logo" />
+
   return (
     <div className="mainLogin">
       <div className="form-box">
