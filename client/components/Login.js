@@ -15,11 +15,13 @@ export default function Login(props) {
       <h1>Here is a login form</h1>
       <input
         type="text"
+        placeholder="Username"
         onChange={(e) => props.onEmailChange(e)}
         value={props.email}
       />
       <input
-        type="text"
+        type="password"
+        plateholder="Password"
         onChange={(e) => props.onPasswordChange(e)}
         value={passwordToDisplay}
       />
