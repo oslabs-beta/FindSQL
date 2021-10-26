@@ -4,6 +4,7 @@ import QueryGenerator from "./QueryGenerator";
 import axios from "axios";
 import { json } from "body-parser";
 import Sidebar from "./Sidebar";
+import { useMutation, gql } from "@apollo/client";
 
 // postgres://hdyovvhb:AdLaNCcnn6hQ939_Hq1ba44_qTfnEdUN@chunee.db.elephantsql.com/hdyovvhb
 let globalQueryRowData;
@@ -16,7 +17,7 @@ export default function Container(props) {
   //table name : table columns set false
 
   function getDatabase(uri) {
-    console.log(uri);
+    // console.log(uri);
 
     const myURI = {
       uri: uri,
@@ -31,7 +32,7 @@ export default function Container(props) {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res, "inside fetch req");
+        // console.log(res, "inside fetch req");
         //store all table names with columns in this array
         const updatedDatabase = [];
         //updating table name switches data
@@ -69,6 +70,12 @@ export default function Container(props) {
           newTable["foreign_table"] = res[i]["foreign_table"];
           newTable["foreign_column"] = res[i]["foreign_column"];
           newTable["column_rows"] = columnDataArray;
+          newTable["column_rows"].forEach((rowObj) => {
+            //{id: {5: false}}
+            const key = Object.keys(rowObj)[0];
+            rowObj[key]["color"] = "black";
+          });
+          // console.log('this is column rows, ', newTable['column_rows'][0]);
           // push this element as the key into a new object and add a false value to it
           // push the tableName object into the tableswithcolumns array
 
@@ -144,7 +151,12 @@ export default function Container(props) {
   //this function is to completely rebuild the queryRowData
   //from scratch. We are dealing with nested objects so the implementation
   //is tedious
-  function isValueOn(valueName, valueTable, valueColumn) {
+  function isValueOn(valueName, valueTable, valueColumn, valueColor) {
+    // if(valueColor === 'black'){
+    //   valueColor = 'red';
+    // }else{
+    //   valueColor = 'black';
+    // }
     const newQueryRowData = [];
     //iterate through data array and find correct tbale name
     for (let table of queryRowData) {
@@ -157,13 +169,21 @@ export default function Container(props) {
         for (let values of table["column_rows"]) {
           //grab column name
           const columnNameToFind = Object.keys(values)[0];
+
           //compare value to passed in value to find right column name
           if (columnNameToFind === valueColumn) {
-            // console.log(values[columnNameToFind]);
             const changeVal = Object.keys(values[columnNameToFind])[0];
+
             if (changeVal === valueName) {
               values[columnNameToFind][changeVal] =
                 !values[columnNameToFind][changeVal];
+              // console.log('isValueOn',values[columnNameToFind]);
+              if (values[columnNameToFind]["color"] === "black") {
+                values[columnNameToFind]["color"] = "red";
+              } else {
+                values[columnNameToFind]["color"] = "black";
+              }
+
               newValuesForColumns.push(values);
             } else {
               newValuesForColumns.push(values);
@@ -201,10 +221,15 @@ export default function Container(props) {
           <QueryGenerator queryRowData={queryRowData} />
         </div>
         <div className="database">{database}</div>
-        <div className="database">{database}</div>
       </div>
       <div className="body-right">
-        <Sidebar isValueOn={isValueOn} data={queryRowData}></Sidebar>
+        <Sidebar
+          isValueOn={isValueOn}
+          data={queryRowData}
+          email={props.email}
+          userId={props.userId}
+          logUserOut={props.logUserOut}
+        ></Sidebar>
       </div>
     </div>
   );
