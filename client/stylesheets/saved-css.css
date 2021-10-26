@@ -1,0 +1,137 @@
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} */ 
+
+/* body {
+  background-color: rgb(135, 135, 135);
+  font-size: 0.85vw;
+}
+
+.main-body{ 
+  display: flex;
+}
+
+
+/* .main-body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.body-left {
+}
+
+.body-right {
+} */
+/* .inputURI,
+.copyURL {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-family: "Courier New", Courier, monospace;
+} */
+
+/* input {
+  width: 100%;
+  text-align: center; */
+  /* font-size: clamp(10px, 4vw, 20px); */
+  /* font-size: 10px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50px;
+} */
+
+/* button {
+  font-size: clamp(10px, 4vw, 20px);
+  background-color: white;
+  border-radius: 50px;
+  width: 30px;
+} */
+
+/* button:focus {
+  border: 1px solid red;
+} */
+
+/* img {
+  width: 100%;
+}
+
+.database { */
+  /* max-width: 1224px; */
+  /* transform: scale(0.8); */
+  /* transform: scaleX(2); */
+  /* transform: translate(-50%, -50%);
+  transform-origin: center center; */
+  /* height: 100vh; */
+  /* width: 100vw; */
+  /* margin: auto; */
+  /* border: 2px solid red; */
+  /* padding: 8px;
+  text-align: center;
+  overflow: hidden;
+} */
+
+/* .queryStringContainer {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50px;
+  width: 100%;
+  margin: auto;
+}
+
+.queryString {
+} */
+
+/* .card {
+    display: inline-block;
+    max-width: 500px;
+    min-width: 150px;
+    border: 2px solid rgb(82, 82, 82);
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(232, 251, 246);
+    margin: 10px 10px;
+    vertical-align: top;
+    width: 0.8rem;
+  }
+  
+  .tableButton {
+    max-width: 500px;
+    min-width: 150px;
+    width: 0.8rem;
+    background-color: rgb(232, 251, 246);
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    /* font-size: 1.5em; */
+    /* font-size: clamp(1px, 1vw, 18px); */
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: auto;
+  } */
+  
+  /* .columnButton {
+    max-width: 500px;
+    min-width: 150px;
+    width: 0.8rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    /* font-size: 1.5em; */
+    /* font-size: clamp(1px, 1vw, 18px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .tableName {
+    padding: 10px; */
+    /* font-size: clamp(10px, 4vw, 20px);
+    text-overflow: ellipsis;
+  }  */

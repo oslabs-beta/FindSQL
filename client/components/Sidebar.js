@@ -32,8 +32,10 @@ export default function Sidebar(props) {
   }
   return (
     <div>
-      <h1>Hello Everyone</h1>
+    <h1>Hello Everyone</h1>
+    <div className='sideBar'>
       {sideTables}
+    </div>
     </div>
   );
 }
