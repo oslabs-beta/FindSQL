@@ -1,5 +1,5 @@
 const models = require("../database.js");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { model } = require("mongoose");
 const { isCompositeType } = require("graphql");
 const APP_SECRET = "OSP_DARREN_JUNE_ANTHONY_CARNEY";
