@@ -17,9 +17,9 @@ export default function SignUp(props) {
   return (
     <div className="mainLogin">
       <div className="form-box">
-        <form className="input-group">
+        <div className="input-group">
           <div className="img-box">
-            <h1> loho here </h1>
+            <img className="loginLogo" src="../assets/findsqlV3.png"></img>
           </div>
           <input
             className="input-field"
@@ -39,7 +39,7 @@ export default function SignUp(props) {
           />
           <button className="submit-btn" onClick={props.getLoginPage}>Log in</button>
           <button className="submit-btn" onClick={props.signUserUp}>Register</button>
-        </form>
+        </div>
       </div>
     </div>
   );
