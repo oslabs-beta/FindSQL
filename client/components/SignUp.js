@@ -11,20 +11,36 @@ export default function SignUp(props) {
   //     passwordToDisplay = outputPassword;
   //   }
   return (
-    <div>
-      <h1>Here is a SignUp page</h1>
-      <input
-        type="text"
-        onChange={(e) => props.onEmailChange(e)}
-        value={props.email}
-      />
-      <input
-        type="text"
-        onChange={(e) => props.onPasswordChange(e)}
-        value={passwordToDisplay}
-      />
-      <button onClick={props.signUserUp}>Sign Up</button>
-      <button onClick={props.getLoginPage}>Already have an Account?</button>
+    <div className="mainLogin">
+      <div className="form-box">
+        <div className="input-group">
+          <div className="img-box">
+            <h1> signup page </h1>
+          </div>
+          <input
+            className="input-field"
+            type="text"
+            placeholder="Enter Username"
+            required
+            onChange={(e) => props.onEmailChange(e)}
+            value={props.email}
+          />
+          <input
+            className="input-field"
+            type="password"
+            placeholder="Enter Password"
+            required
+            onChange={(e) => props.onPasswordChange(e)}
+            value={passwordToDisplay}
+          />
+          <button className="primary-btn" onClick={props.signUserUp}>
+            Sign Up
+          </button>
+          <a onClick={props.getLoginPage}>
+            <p>Already have an account</p>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

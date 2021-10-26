@@ -32,17 +32,11 @@ export default function Sidebar(props) {
   }
   return (
     <div>
-<<<<<<< HEAD
       <h2>
         Hello, <span>{props.email}</span>
       </h2>
       <button onClick={props.logUserOut}>Log Out</button>
-=======
-    <h1>Hello Everyone</h1>
-    <div className='sideBar'>
->>>>>>> development
       {sideTables}
-    </div>
     </div>
   );
 }
