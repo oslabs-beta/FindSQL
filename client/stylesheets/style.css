@@ -4,19 +4,15 @@
   width: 80%;
   justify-content: center;
 }
-
 .body-right {
   position: absolute;
   float: right;
   right: 0;
   margin: 20px;
 }
-
 .database {
   text-align: center;
-
 }
-
 .inputURI,
 .copyURL {
   display: flex;
@@ -25,7 +21,6 @@
   font-family: "Courier New", Courier, monospace;
   padding: 20px 20px 0;
 }
-
 input {
   width: 1000px;
   text-align: center;
@@ -33,14 +28,12 @@ input {
   border: 2px solid black;
   border-radius: 50px;
 }
-
 button {
   font-size: clamp(10px, 4vw, 20px);
   background-color: white;
   border-radius: 50px;
   width: 30px;
 }
-
 .sideValueButton {
   width: 271px;
   max-width: 500px;
@@ -55,7 +48,6 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 .sideTable {
   border: 2px solid black;
   border-radius: 5px;
@@ -64,21 +56,18 @@ button {
   overflow: scroll;
   overflow-x: hidden;
 }
-
 .sideTable h2 {
   position: absolute;
 }
-
 .sideTableName {
   width: 50%;
   margin: auto;
 }
-
 img {
   width: 100%;
 }
-
-.card , .sideBar {
+.card,
+.sideBar {
   display: inline-block;
   max-width: 500px;
   min-width: 150px;
@@ -90,17 +79,14 @@ img {
   vertical-align: top;
   width: 0.8rem;
 }
-
 .sideBar {
   width: 275px;
   /* width: 1.5 rem; */
   border: none;
 }
-
 .sideBar h1 {
   background-color: white;
 }
-
 .tableButton {
   max-width: 500px;
   min-width: 130px;
@@ -115,7 +101,6 @@ img {
   white-space: nowrap;
   margin: auto;
 }
-
 .columnButton {
   max-width: 500px;
   min-width: 150px;
@@ -130,9 +115,76 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 .tableName {
   padding: 10px;
   font-size: clamp(10px, 4vw, 20px);
   text-overflow: ellipsis;
 }
+
+/*testing css*/
+
+.mainLogin {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-color: black;
+  border: 5px;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: center;
+}
+
+.img-box {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  border-radius: 30px;
+}
+
+.form-box {
+  width: 380px;
+  height: 480px;
+  position: relative;
+  margin: 6% auto;
+  background: white;
+  padding: 5px;
+}
+
+.input-group {
+  top: 180px;
+  position: relative;
+  width: 280px;
+  transition: 0.5s;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+
+.primary-btn {
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: whitesmoke;
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+/* 
+.secondary-btn {
+} */
