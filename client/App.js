@@ -14,7 +14,7 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState("");
   const [userProjects, setUserProjects] = useState([]);
-  const [cookie, setCookie] = useCookies(["user"]);
+  const [cookie, setCookie, removeCookie] = useCookies(["user"]);
   //payload to be invoked with login mutation query
 
   //once component is mounted check if there is already a login cookie set
@@ -77,6 +77,7 @@ export default function App() {
         email={email}
         userId={userId}
         userProjects={userProjects}
+        logUserOut={logUserOut}
       ></Container>
     );
   } else {
@@ -105,7 +106,9 @@ export default function App() {
     userSignUp();
   }
   function logUserOut() {
+    removeCookie("user");
     SetUserLogin(false);
+    window.location.reload(false);
   }
 
   function onPasswordChange(e) {

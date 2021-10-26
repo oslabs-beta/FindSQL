@@ -223,7 +223,13 @@ export default function Container(props) {
         <div className="database">{database}</div>
       </div>
       <div className="body-right">
-        <Sidebar isValueOn={isValueOn} data={queryRowData}></Sidebar>
+        <Sidebar
+          isValueOn={isValueOn}
+          data={queryRowData}
+          email={props.email}
+          userId={props.userId}
+          logUserOut={props.logUserOut}
+        ></Sidebar>
       </div>
     </div>
   );

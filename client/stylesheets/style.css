@@ -10,6 +10,39 @@
   width: 100%;
   border-color: black;
   border: 5px;
+}
+
+  .main-body {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: center;
+}
+
+.body-right {
+  position: absolute;
+  float: right;
+  right: 0;
+  margin: 20px;
+}
+
+.database {
+  text-align: center;
+
+}
+
+.inputURI,
+.copyURL {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  font-family: "Courier New", Courier, monospace;
+  padding: 20px 20px 0;
+}
+
+input {
+  width: 1000px;
+  text-align: center;
   background-color: white;
 }
 
@@ -58,4 +91,99 @@
  border: 0;
  outline: none;
  border-radius: 30px;
+}
+.sideValueButton {
+  width: 271px;
+  max-width: 500px;
+  min-width: 150px;
+  /* width: 0.8rem; */
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: clamp(1px, 1vw, 18px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sideTable {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px 0 40px 0;
+  height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.sideTable h2 {
+  position: absolute;
+}
+
+.sideTableName {
+  width: 50%;
+  margin: auto;
+}
+
+img {
+  width: 100%;
+}
+
+.card , .sideBar {
+  display: inline-block;
+  max-width: 500px;
+  min-width: 150px;
+  border: 2px solid rgb(82, 82, 82);
+  border-radius: 5px;
+  text-align: center;
+  /* background-color: rgb(232, 251, 246); */
+  margin: 10px 10px;
+  vertical-align: top;
+  width: 0.8rem;
+}
+
+.sideBar {
+  width: 275px;
+  /* width: 1.5 rem; */
+  border: none;
+}
+
+.sideBar h1 {
+  background-color: white;
+}
+
+.tableButton {
+  max-width: 500px;
+  min-width: 130px;
+  width: 0.8rem;
+  background-color: rgb(232, 251, 246);
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: clamp(1px, 1vw, 18px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
+}
+
+.columnButton {
+  max-width: 500px;
+  min-width: 150px;
+  width: 0.8rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  /* font-size: 1.5em; */
+  font-size: clamp(1px, 1vw, 18px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tableName {
+  padding: 10px;
+  font-size: clamp(10px, 4vw, 20px);
+  text-overflow: ellipsis;
 }
