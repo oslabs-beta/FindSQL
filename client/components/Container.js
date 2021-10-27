@@ -72,7 +72,7 @@ export default function Container(props) {
           newTable["column_rows"].forEach((rowObj) => {
             //{id: {5: false}}
             const key = Object.keys(rowObj)[0];
-            rowObj[key]["color"] = "black";
+            rowObj[key]["color"] = "#dfe2e4";
           });
           // console.log('this is column rows, ', newTable['column_rows'][0]);
           // push this element as the key into a new object and add a false value to it
@@ -177,10 +177,10 @@ export default function Container(props) {
               values[columnNameToFind][changeVal] =
                 !values[columnNameToFind][changeVal];
               // console.log('isValueOn',values[columnNameToFind]);
-              if (values[columnNameToFind]["color"] === "black") {
-                values[columnNameToFind]["color"] = "red";
+              if (values[columnNameToFind]["color"] === "#dfe2e4") {
+                values[columnNameToFind]["color"] = "#f14647";
               } else {
-                values[columnNameToFind]["color"] = "black";
+                values[columnNameToFind]["color"] = "#dfe2e4";
               }
 
               newValuesForColumns.push(values);

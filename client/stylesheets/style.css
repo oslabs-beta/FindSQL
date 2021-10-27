@@ -1,17 +1,25 @@
+body {
+  background-color: #272a33;
+  color: #dfe2e4;
+  margin: 0;
+}
+
 .main-body {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: center;
+  background-color: #272a33;
 }
 
 .body-right {
+  margin-right: 0;
   background: white;
   float: right;
   right: 0;
-  margin: 20px;
   max-width: 700px;
   min-width: 300px;
+  background-color: #151718;
 }
 
 .logOutBar {
@@ -19,6 +27,11 @@
   justify-content: space-around;
   margin: 10px;
   padding: 10px;
+  align-items: center;
+}
+
+.logOutBar h2 {
+  color: #1abc9c;
 }
 
 .database {
@@ -47,9 +60,10 @@ input {
 }
 button {
   font-size: clamp(10px, 4vw, 20px);
-  background-color: white;
+  background-color: #f7b0b0;
   border-radius: 50px;
   width: 30px;
+  border: none;
 }
 
 .sideTableWrapper {
@@ -61,7 +75,7 @@ button {
   width: 0.8rem;
   max-width: 500px;
   min-width: 300px;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -121,12 +135,37 @@ img {
   border: none;
 }
 */
+.authpage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
+.auth-left {
+  flex: 1;
+  justify-content: center;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #161616;
+  height: 100%;
+  margin: 0;
+}
+
+.auth-item {
+  display: flex;
+  justify-content: center;
+}
 .tableButton {
   max-width: 500px;
   min-width: 130px;
   width: 0.8rem;
-  background-color: rgb(232, 251, 246);
+  background-color: #1abc9c;
   border: none;
   border-radius: 5px;
   padding: 15px;
@@ -137,10 +176,11 @@ img {
   margin: auto;
 }
 .columnButton {
+  color: #dfe2e4;
   max-width: 500px;
   min-width: 150px;
   width: 0.8rem;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -163,7 +203,8 @@ img {
   margin-right: auto;
   margin-top: 40px;
 }
-/*testing css*/
+
+/*testing css for longin and signuppage*/
 
 .mainLogin {
   display: flex;
@@ -180,7 +221,8 @@ img {
   position: relative;
   border-radius: 30px;
 }
-*/ .form-box {
+
+.form-box {
   width: 380px;
   height: 480px;
   position: relative;
@@ -193,23 +235,26 @@ img {
   top: 180px;
   position: relative;
   width: 280px;
-  transition: 0.5s;
+  background-color: #161616;
+  border-radius: 5%;
+  margin: 10px 10px 10px 10px;
+  padding: 40px;
 }
 
 .input-field {
   width: 100%;
   padding: 10px 0;
   margin: 5px 0;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 1px solid #999;
   outline: none;
-  background: transparent;
+  text-align: center;
+  border: 2px solid black;
+  background-color: #000;
+  color: white;
+  border-radius: 15px;
 }
 
 .primary-btn {
-  width: 85%;
+  width: 50%;
   padding: 10px 30px;
   cursor: pointer;
   display: block;
@@ -217,10 +262,22 @@ img {
   background: #6846ed;
   border: 0;
   outline: none;
-  border-radius: 30px;
+  border-radius: 15px;
+  margin-top: 10px;
+  color: white;
 }
 
-.secondary-btn {
+.primary-btn:hover {
+  background: #a494e9;
+}
+
+.auth-link {
+  justify-content: center;
+  display: flex;
+  color: white-space;
+  cursor: pointer;
+}
+
+.auth-inner-content {
   margin: auto;
-  background: #1abc9c;
 }
