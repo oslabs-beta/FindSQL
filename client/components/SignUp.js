@@ -19,7 +19,7 @@ export default function SignUp(props) {
       <div className="form-box">
         <div className="input-group">
           <div className="img-box">
-            <h1> signup page </h1>
+            <img className="loginLogo" src="../assets/findsqlV3.png"></img>
           </div>
           <input
             className="input-field"
