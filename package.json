@@ -2,12 +2,11 @@
   "name": "osp-sqlgenerator",
   "version": "1.0.0",
   "description": "App that generates SQL queries and visually represents an entire database",
-  "main": "./electron/main.js",
+  "main": "./server/server.js",
   "scripts": {
     "graph": "node server/graphQL/server2.js",
     "build": "webpack",
-    "start": "electron-forge start",
-    "csstest": "node ./server/server.js"
+    "start": "nodemon ./server/server.js"
   },
   "repository": {
     "type": "git",
