@@ -207,6 +207,7 @@ export default function Container(props) {
   return (
     <div className="main-body">
       <div className="body-left">
+        <img className="loginLogo" src="../assets/findsqlV3.png"></img>
         <div className="inputURI">
           <input id="URI" type="text" placeholder="Your URI" />
           <button
