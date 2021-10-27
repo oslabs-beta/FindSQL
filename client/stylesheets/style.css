@@ -1,18 +1,35 @@
 .main-body {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 100%;
   justify-content: center;
 }
+
 .body-right {
-  position: absolute;
+  background: white;
   float: right;
   right: 0;
   margin: 20px;
+  max-width: 700px;
+  min-width: 300px;
 }
+
+.logOutBar {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  padding: 10px;
+}
+
 .database {
   text-align: center;
+  padding: 20px;
 }
+
+.logOut {
+  width: 100px;
+}
+
 .inputURI,
 .copyURL {
   display: flex;
@@ -22,7 +39,7 @@
   padding: 20px 20px 0;
 }
 input {
-  width: 1000px;
+  width: 750px;
   text-align: center;
   background-color: white;
   border: 2px solid black;
@@ -34,11 +51,16 @@ button {
   border-radius: 50px;
   width: 30px;
 }
-.sideValueButton {
-  width: 271px;
+
+.sideTableWrapper {
   max-width: 500px;
-  min-width: 150px;
-  /* width: 0.8rem; */
+  min-width: 300px;
+  width: 0.8rem;
+}
+.sideValueButton {
+  width: 0.8rem;
+  max-width: 500px;
+  min-width: 300px;
   background-color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
@@ -56,18 +78,32 @@ button {
   overflow: scroll;
   overflow-x: hidden;
 }
+.sideTable::-webkit-scrollbar {
+  display: none;
+}
+
+.sideTableContainer {
+  overflow: scroll;
+  height: 100vh;
+}
+
+.sideTableContainer::-webkit-scrollbar {
+  display: none;
+}
+
 .sideTable h2 {
   position: absolute;
+  background-color: white;
 }
 .sideTableName {
-  width: 50%;
+  width: 100%;
   margin: auto;
+  text-align: center;
 }
 img {
   width: 100%;
 }
-.card,
-.sideBar {
+.card  /*, .sideBar */ {
   display: inline-block;
   max-width: 500px;
   min-width: 150px;
@@ -79,14 +115,13 @@ img {
   vertical-align: top;
   width: 0.8rem;
 }
-.sideBar {
+/* .sideBar {
   width: 275px;
-  /* width: 1.5 rem; */
+ 
   border: none;
 }
-.sideBar h1 {
-  background-color: white;
-}
+*/
+
 .tableButton {
   max-width: 500px;
   min-width: 130px;
@@ -121,6 +156,13 @@ img {
   text-overflow: ellipsis;
 }
 
+.loginLogo {
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
 /*testing css*/
 
 .mainLogin {
@@ -138,8 +180,7 @@ img {
   position: relative;
   border-radius: 30px;
 }
-
-.form-box {
+*/ .form-box {
   width: 380px;
   height: 480px;
   position: relative;
