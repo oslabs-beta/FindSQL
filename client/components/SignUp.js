@@ -40,7 +40,7 @@ export default function SignUp(props) {
           <button className="primary-btn" onClick={props.signUserUp}>
             Sign Up
           </button>
-          <a onClick={props.getLoginPage}>
+          <a className="secondary-btn" onClick={props.getLoginPage}>
             <p>Already have an account</p>
           </a>
         </div>

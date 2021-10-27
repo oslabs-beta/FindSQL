@@ -6,7 +6,8 @@
   "scripts": {
     "graph": "node server/graphQL/server2.js",
     "build": "webpack",
-    "start": "electron-forge start"
+    "start": "electron-forge start",
+    "csstest": "node ./server/server.js"
   },
   "repository": {
     "type": "git",
