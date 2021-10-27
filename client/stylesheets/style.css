@@ -132,13 +132,6 @@ img {
   border: 5px;
 }
 
-.main-body {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  justify-content: center;
-}
-
 .img-box {
   width: 220px;
   margin: 35px auto;
@@ -180,11 +173,13 @@ img {
   cursor: pointer;
   display: block;
   margin: auto;
-  background: whitesmoke;
+  background: #6846ed;
   border: 0;
   outline: none;
   border-radius: 30px;
 }
-/* 
+
 .secondary-btn {
-} */
+  margin: auto;
+  background: #1abc9c;
+}
