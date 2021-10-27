@@ -15,17 +15,13 @@ export default function SignUp(props) {
   // <img src={myLogo} alt="Logo" />
 
   return (
-    <div className="mainLogin">
-      <div className="form-box">
-        <div className="input-group">
-          <div className="img-box">
-            <img className="loginLogo" src="../assets/findsqlV3.png"></img>
-          </div>
+    <div className="authpage">
+      <div class="auth-right">
+        <div className="auth-inner-content">
           <input
             className="input-field"
             type="text"
             placeholder="Enter Username"
-            required
             onChange={(e) => props.onEmailChange(e)}
             value={props.email}
           />
@@ -33,17 +29,19 @@ export default function SignUp(props) {
             className="input-field"
             type="password"
             placeholder="Enter Password"
-            required
             onChange={(e) => props.onPasswordChange(e)}
             value={passwordToDisplay}
           />
-          <button className="primary-btn" onClick={props.signUserUp}>
-            Sign Up
+          <button className="primary-btn" onClick={props.logUserIn}>
+            Login
           </button>
-          <a onClick={props.getLoginPage}>
-            <p>Already have an account</p>
+          <a className="auth-link" onClick={props.getLoginPage}>
+            <p>Already have an account?</p>
           </a>
         </div>
+      </div>
+      <div class="auth-left">
+        <h1 className="auth-item"> Sign Up </h1>
       </div>
     </div>
   );

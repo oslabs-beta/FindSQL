@@ -3,7 +3,7 @@ import Login from "./Login.js";
 import SignUp from "./SignUp.js";
 
 export default function Authentication(props) {
-  const [newUser, setUser] = useState(true);
+  const [newUser, setUser] = useState(false);
   const [encryptPassword, setPasswordEncrpt] = useState(true);
   let formToDisplay;
 
