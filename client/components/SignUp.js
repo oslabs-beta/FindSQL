@@ -24,7 +24,7 @@ export default function SignUp(props) {
           <input
             className="input-field"
             type="text"
-            placeholder="Username"
+            placeholder="Enter Username"
             required
             onChange={(e) => props.onEmailChange(e)}
             value={props.email}
@@ -37,8 +37,12 @@ export default function SignUp(props) {
             onChange={(e) => props.onPasswordChange(e)}
             value={passwordToDisplay}
           />
-          <button className="submit-btn" onClick={props.getLoginPage}>Log in</button>
-          <button className="submit-btn" onClick={props.signUserUp}>Register</button>
+          <button className="primary-btn" onClick={props.signUserUp}>
+            Sign Up
+          </button>
+          <a onClick={props.getLoginPage}>
+            <p>Already have an account</p>
+          </a>
         </div>
       </div>
     </div>
