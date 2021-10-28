@@ -175,7 +175,7 @@ button {
   display: none;
 }
 
-.sideTable h2 {
+.sideTable h4 {
   position: absolute;
   background-color: white;
 }
@@ -234,7 +234,19 @@ img {
 .auth-item {
   display: flex;
   justify-content: center;
+  margin: auto;
+  margin-bottom: 15px;
+  padding: 60px;
+  padding-bottom: 0px;
+  padding-top: 10px;
 }
+
+.authpage img {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+
 .tableButton {
   padding: 20px;
   max-width: 500px;
@@ -337,7 +349,6 @@ input:-webkit-autofill:active{
 }
 
 input:-webkit-autofill{
-  /* -webkit-box-background: 0 0 0 30px blue inset !important; */
   -webkit-text-fill-color: #dfe2e4 !important;
 }
 
@@ -395,4 +406,42 @@ input:-webkit-autofill{
 .secondary-btn {
   margin: auto;
   background: #1bdfc9;
+}
+
+.loginAnimation {
+  background: linear-gradient(91deg, #1abc9c, #161616);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationLogin 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationLogin {
+  0% {
+    background-position: 0% 48%;
+  }
+  50% {
+    background-position: 100% 53%;
+  }
+  100% {
+    background-position: 0% 48%;
+  }
+}
+
+.signupAnimation {
+  background: linear-gradient(271deg, #1abc9c, #161616);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationSignUp 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationSignUp {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
 }

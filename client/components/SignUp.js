@@ -15,13 +15,15 @@ export default function SignUp(props) {
   // <img src={myLogo} alt="Logo" />
 
   return (
-    <div className="authpage">
-      <div class="auth-right">
+    <div className="authpage signupAnimation">
+      <div className="auth-right">
         <div className="auth-inner-content">
+          <img src="../assets/findsqlV4.png" className="auth-item" />
+          <p className="auth-item">Please Sign Up For A Find+SQL Account</p>
           <input
             className="input-field"
-            type="text"
-            placeholder="Enter Username"
+            type="email"
+            placeholder="Enter Email"
             onChange={(e) => props.onEmailChange(e)}
             value={props.email}
           />
@@ -32,17 +34,22 @@ export default function SignUp(props) {
             onChange={(e) => props.onPasswordChange(e)}
             value={passwordToDisplay}
           />
-          <button className="primary-btn" onClick={props.logUserIn}>
-            Login
+          <button className="primary-btn" onClick={props.signUserUp}>
+            Sign Up
           </button>
           <a className="auth-link" onClick={props.getLoginPage}>
             <p>Already have an account?</p>
           </a>
         </div>
       </div>
-      <div class="auth-left">
-        <h1 className="auth-item"> Sign Up </h1>
+      <div className="auth-left">
+        <h1 className="auth-item"> Welcome to Find+SQL </h1>
+        <h4 className="auth-item">
+          Find+SQL is a PostgresSQL dynamically generating query developer tool,
+          that hastens the time required for generating queries.
+        </h4>
       </div>
     </div>
   );
 }
+
