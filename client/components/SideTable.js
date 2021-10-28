@@ -49,9 +49,13 @@ export default function SideTable(props) {
   }
   //render all p elements
   return (
-    <div>
-      <h2>{`${table}.${column}`}</h2>
-      {values}
+    <div className="sideTableWrapper">
+      <div className="sideTableName">
+        <h4>{`${table}.${column}`}</h4> 
+      </div>
+      <div className="sideTable">
+        {values}
+      </div>
     </div>
   );
 }

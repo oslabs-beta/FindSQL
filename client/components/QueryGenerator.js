@@ -28,10 +28,10 @@ export default function queryGenerator(props) {
   return (
     <div>
       <div className="inputURI">
-        <button type="submit" onClick={() => sendQueryString(document.getElementById('copyURL').value)}>
-          <img src="../assets/copy.png"></img>
-        </button>
         <input id="copyURL" type="text" value={ queryString } readOnly />
+        <button className="copyButton" type="submit" onClick={() => sendQueryString(document.getElementById('copyURL').value)}>
+          <img src="../assets/copywhite.png"></img>
+        </button>
         {/* <h2 className="queryString">{ queryString }</h2> */}
       </div>
     </div>

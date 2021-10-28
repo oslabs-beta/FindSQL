@@ -94,7 +94,7 @@ export default function App() {
     );
   }
 
-  function checkAuthCookieDetails() {}
+  function checkAuthCookieDetails() { }
 
   function logUserIn() {
     //make graphql login mutation

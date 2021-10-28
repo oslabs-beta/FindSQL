@@ -1,110 +1,260 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+*{
+  font-family: Sora;
 }
 
-html,
 body {
-  background-color: rgb(135, 135, 135);
-  font-size: 0.85vw;
+  background-color: #272a33;
+  color: #dfe2e4;
+  margin: 0;
 }
 
 .main-body {
   display: flex;
   flex-direction: row;
   width: 100%;
+  justify-content: center;
+  background-color: #272a33;
 }
 
 .body-left {
+  width: 80%;
 }
 
 .body-right {
+  margin-right: 0;
+  background: white;
+  float: right;
+  right: 0;
+  max-width: 1000px;
+  min-width: 300px;
+  width: 575px;
+  background-color: #151718;
+  display: flex;
+  justify-content: center;
 }
+
+.logOutBar {
+  background-color: #151718;
+  border: 1px solid #dfe2e4;
+  border-radius: 15px;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-around;
+  /* margin-top: 60px; */
+  padding: 10px;
+  align-items: center;
+  /* width: 100%; */
+  margin: 45px 35px;
+}
+
+.logOutBar h2 {
+  color: #dfe2e4;
+}
+
+.sidebarHeader {
+  max-width: 1000px;
+  /* min-width: 400px; */
+  width:100%;
+}
+
+.database {
+  text-align: center;
+  padding: 20px;
+}
+
+.logOut {
+  width: auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: transparent;
+  /* border: 1px solid #6746ed; */
+  color: #c495fd;
+  background-color: #c495fd52;
+}
+
+.logOut:hover {
+  background-color: #f14647;
+  color:#dfe2e4;
+}
+
 .inputURI,
 .copyURL {
   display: flex;
   justify-content: center;
   margin: 10px;
   font-family: "Courier New", Courier, monospace;
+  padding: 20px 20px 0;
 }
 
 input {
-  width: 100%;
+  width: 750px;
   text-align: center;
-  /* font-size: clamp(10px, 4vw, 20px); */
-  font-size: 10px;
   background-color: white;
   border: 2px solid black;
   border-radius: 50px;
+  box-shadow: 0 blue inset;
 }
+
+.submitURI {
+  width: 35px;
+}
+
+.submitURI, .copyButton {
+  margin-left: -40px;
+  margin-bottom: -5px;
+  background-color: transparent;
+}
+
+/* .copyButton {
+  margin-right: -50px;
+} */
 
 button {
   font-size: clamp(10px, 4vw, 20px);
-  background-color: white;
+  /* background-color: #6746ed; */
   border-radius: 50px;
   width: 30px;
+  border: none;
 }
 
-/* button:focus {
-  border: 1px solid red;
-} */
+.table {
+  margin: 10px;
+}
 
+.sideTableWrapper {
+  max-width: 500px;
+  min-width: 300px;
+  padding-bottom: 30px;
+  /* width: 20vw; */
+}
+.sideValueButton {
+  margin: 2px;
+  color: #dfe2e4;
+  width: 0.8rem;
+  max-width: 500px;
+  min-width: 160px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: clamp(1px, 1vw, 18px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sideValueButton:hover {
+  color: #c495fd;
+}
+
+.sideTable {
+  text-align: center;
+  border: 2px solid rgb(68, 54, 54);
+  border-color: #c495fd;
+  border-radius: 50px;
+  margin: 10px 0 40px 0;
+  height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #251f2d;
+  padding-top: 30px;
+}
+.sideTable::-webkit-scrollbar {
+  display: none;
+}
+
+.sideTableContainer {
+  overflow: scroll;
+  height: 100vh;
+  padding: 40px;
+}
+
+.sideTableContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.sideTable h4 {
+  position: absolute;
+  background-color: white;
+}
+.sideTableName {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
 img {
   width: 100%;
 }
 
-.database {
-  /* max-width: 1224px; */
-  transform: scale(0.8);
-  /* transform: scaleX(2); */
-  /* transform: translate(-50%, -50%);
-  transform-origin: center center; */
-  /* height: 100vh; */
-  width: 100vw;
-  margin: auto;
-  /* border: 2px solid red; */
-  padding: 8px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.queryStringContainer {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 50px;
-  /* padding: 5px; */
-  width: 100%;
-  margin: auto;
-}
-
-.queryString {
-}
-
-.card {
+.card  /*, .sideBar */ {
   display: inline-block;
   max-width: 500px;
-  min-width: 150px;
-  border: 2px solid rgb(82, 82, 82);
-  border-radius: 5px;
+  min-width: 200px;
+  min-height: 115px;
+  background-color: #151718;
+  border: 2px solid #1bdfc9;
+  border-radius: 53px;
   text-align: center;
-  background-color: rgb(232, 251, 246);
-  margin: 10px 10px;
+  /* background-color: rgb(232, 251, 246); */
+  margin: 20px 20px;
   vertical-align: top;
   width: 0.8rem;
+
+}
+/* .sideBar {
+  width: 275px;
+ 
+  border: none;
+}asdf
+*/
+.authpage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.auth-left {
+  flex: 1;
+  justify-content: center;
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #161616;
+  height: 100%;
+  margin: 0;
+}
+
+.auth-item {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 15px;
+  padding: 60px;
+  padding-bottom: 0px;
+  padding-top: 10px;
+}
+
+.authpage img {
+  width: 200px;
+  display: flex;
+  justify-content: center;
 }
 
 .tableButton {
+  padding: 20px;
   max-width: 500px;
-  min-width: 150px;
+  min-width: 200px;
   width: 0.8rem;
-  background-color: rgb(232, 251, 246);
+  background-color: #1bdfc9;
   border: none;
-  border-radius: 5px;
-  padding: 15px;
-  /* font-size: 1.5em; */
+  border-radius: 50px 50px 0 0 ;
   font-size: clamp(1px, 1vw, 18px);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -112,11 +262,17 @@ img {
   margin: auto;
 }
 
+.tableButton:hover {
+  color: #dfe2e4;
+}
+
 .columnButton {
+  margin: 2px;
+  color: #dfe2e4;
   max-width: 500px;
   min-width: 150px;
   width: 0.8rem;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -127,8 +283,165 @@ img {
   white-space: nowrap;
 }
 
+.columnButton:hover {
+  color: #1bdfc9;
+}
+
 .tableName {
   /* padding: 10px; */
   font-size: clamp(10px, 4vw, 20px);
-  /* text-overflow: ellipsis; */
+  text-overflow: ellipsis;
+}
+
+.loginLogo {
+  width: 175px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+/*testing css for longin and signuppage*/
+
+.mainLogin {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-color: black;
+  border: 5px;
+}
+
+.img-box {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  border-radius: 30px;
+}
+
+.form-box {
+  width: 380px;
+  height: 480px;
+  position: relative;
+  margin: 6% auto;
+  background: white;
+  padding: 5px;
+}
+
+input[type="text"], textarea {
+  background-color: #151718;
+  color: #dfe2e4;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: red;
+}
+
+input[type=text]:focus, textarea:focus {
+  border: 2px solid #C495FD;
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #151718 inset !important;
+}
+
+input:-webkit-autofill{
+  -webkit-text-fill-color: #dfe2e4 !important;
+}
+
+.input-group {
+  top: 180px;
+  position: relative;
+  width: 280px;
+  background-color: #161616;
+  border-radius: 5%;
+  margin: 10px 10px 10px 10px;
+  padding: 40px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  outline: none;
+  text-align: center;
+  border: 2px solid black;
+  background-color: #000;
+  color: white;
+  border-radius: 15px;
+}
+
+.primary-btn {
+  width: 50%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: #6846ed;
+  border: 0;
+  outline: none;
+  border-radius: 15px;
+  margin-top: 10px;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #a494e9;
+}
+
+.auth-link {
+  justify-content: center;
+  display: flex;
+  color: white-space;
+  cursor: pointer;
+}
+
+.auth-inner-content {
+  margin: auto;
+}
+
+.secondary-btn {
+  margin: auto;
+  background: #1bdfc9;
+}
+
+.loginAnimation {
+  background: linear-gradient(91deg, #1abc9c, #161616);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationLogin 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationLogin {
+  0% {
+    background-position: 0% 48%;
+  }
+  50% {
+    background-position: 100% 53%;
+  }
+  100% {
+    background-position: 0% 48%;
+  }
+}
+
+.signupAnimation {
+  background: linear-gradient(271deg, #1abc9c, #161616);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationSignUp 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationSignUp {
+  0% {
+    background-position: 0% 51%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 51%;
+  }
 }
