@@ -51,7 +51,7 @@ export default function SideTable(props) {
   return (
     <div className="sideTableWrapper">
       <div className="sideTableName">
-        <h2>{`${table}.${column}`}</h2> 
+        <h4>{`${table}.${column}`}</h4> 
       </div>
       <div className="sideTable">
         {values}
