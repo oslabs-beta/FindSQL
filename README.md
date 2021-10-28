@@ -5,13 +5,13 @@ Find+SQL was designed to provide a visual solution to navigating any PostgreSQL 
 
 ## Table of Contents
 
-[Built With](#built-with)
-[Features](#features)
-[How to Install](#how-to-install)
-[Usage](#usage)
-[Upcoming Features](#upcoming-features)
-[License](#license)
-[Contributors](#contributors)
+* [Built With](#built-with)
+* [Features](#features)
+* [How to Install](#how-to-install)
+* [Usage](#usage)
+* [Upcoming Features](#upcoming-features)
+* [License](#license)
+* [Contributors](#contributors)
 
 ## Built With
 
@@ -27,7 +27,7 @@ Find+SQL was designed to provide a visual solution to navigating any PostgreSQL 
 
 * Authentication
 * Dynamic URI Input
-* Dyanmic visual representation of relational tables
+* Dynamic visual representation of relational tables
 * Interactive tables/columns/values associated
 * Dynamic query string generator
 * Able to save previous queries
@@ -37,10 +37,20 @@ Find+SQL was designed to provide a visual solution to navigating any PostgreSQL 
 ## Usage
 
 * Copy PostgresQL URI
+
+![screen-gif](./URI.gif)
 * Generate query for all columns from multiple tables
+
+![screen-gif2](./multipletables.gif)
 * Generate Full Outer Join query from two tables w/ multiple pairs of matching columns
+
+![screen-gif3](./fullouterjoin.gif)
 * Generate query for multiple columns from a single table
+
+![screen-gif4](./multiplecolumns.gif)
 * Generate Where Clause query from single table w/ multiple columns & values (OR / AND)
+
+![screen-gif5](./whereclause.gif)
 
 ## Upcoming Features
 
