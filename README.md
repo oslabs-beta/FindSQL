@@ -5,13 +5,13 @@ Find+SQL was designed to provide a visual solution to navigating any PostgreSQL 
 
 ## Table of Contents
 
-* [Built With](#built-with)
-* [Features](#features)
-* [How to Install](#how-to-install)
-* [Usage](#usage)
-* [Upcoming Features](#upcoming-features)
-* [License](#license)
-* [Contributors](#contributors)
+[Built With](#built-with)
+[Features](#features)
+[How to Install](#how-to-install)
+[Usage](#usage)
+[Upcoming Features](#upcoming-features)
+[License](#license)
+[Contributors](#contributors)
 
 ## Built With
 
@@ -27,7 +27,7 @@ Find+SQL was designed to provide a visual solution to navigating any PostgreSQL 
 
 * Authentication
 * Dynamic URI Input
-* Dynamic visual representation of relational tables
+* Dyanmic visual representation of relational tables
 * Interactive tables/columns/values associated
 * Dynamic query string generator
 * Able to save previous queries
