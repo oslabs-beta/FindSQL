@@ -72,7 +72,7 @@ export default function Container(props) {
           newTable["column_rows"].forEach((rowObj) => {
             //{id: {5: false}}
             const key = Object.keys(rowObj)[0];
-            rowObj[key]["color"] = "#dfe2e4";
+            rowObj[key]["color"] = "transparent";
           });
           // console.log('this is column rows, ', newTable['column_rows'][0]);
           // push this element as the key into a new object and add a false value to it
@@ -83,7 +83,7 @@ export default function Container(props) {
 
           updatedDatabase.push(
             <div className="card">
-              <Tables key={i} data={res[i]} isOn={isOn} />
+              <Tables key={i} data={res[i]} isOn={isOn}/>
             </div>
           );
         }
@@ -177,10 +177,10 @@ export default function Container(props) {
               values[columnNameToFind][changeVal] =
                 !values[columnNameToFind][changeVal];
               // console.log('isValueOn',values[columnNameToFind]);
-              if (values[columnNameToFind]["color"] === "#dfe2e4") {
+              if (values[columnNameToFind]["color"] === "transparent") {
                 values[columnNameToFind]["color"] = "#f14647";
               } else {
-                values[columnNameToFind]["color"] = "#dfe2e4";
+                values[columnNameToFind]["color"] = "transparent";
               }
 
               newValuesForColumns.push(values);
@@ -207,14 +207,15 @@ export default function Container(props) {
   return (
     <div className="main-body">
       <div className="body-left">
-        <img className="loginLogo" src="../assets/findsqlV3.png"></img>
+        <img className="loginLogo" src="../assets/findsqlwhite.png"></img>
         <div className="inputURI">
           <input id="URI" type="text" placeholder="Your URI" />
           <button
+            className="submitURI"
             type="submit"
             onClick={() => getDatabase(document.getElementById("URI").value)}
           >
-            <img src="../assets/click.png"></img>
+            <img src="../assets/pngegg.png"></img>
           </button>
         </div>
         <div>
