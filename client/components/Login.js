@@ -41,7 +41,7 @@ export default function Login(props) {
     //   </div>
     // </div>
     <div className="authpage">
-      <div class="auth-left">
+      <div className="auth-left">
         <h1 className="auth-item"> login page </h1>
       </div>
       <div class="auth-right">

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+*{
+  font-family: Sora;
+}
+
 body {
   background-color: #272a33;
   color: #dfe2e4;
@@ -12,26 +18,45 @@ body {
   background-color: #272a33;
 }
 
+.body-left {
+  width: 80%;
+}
+
 .body-right {
   margin-right: 0;
   background: white;
   float: right;
   right: 0;
-  max-width: 700px;
+  max-width: 1000px;
   min-width: 300px;
+  width: 575px;
   background-color: #151718;
+  display: flex;
+  justify-content: center;
 }
 
 .logOutBar {
+  background-color: #151718;
+  border: 1px solid #dfe2e4;
+  border-radius: 15px;
+  padding: 10px 50px;
   display: flex;
   justify-content: space-around;
-  margin: 10px;
+  /* margin-top: 60px; */
   padding: 10px;
   align-items: center;
+  /* width: 100%; */
+  margin: 45px 35px;
 }
 
 .logOutBar h2 {
-  color: #1abc9c;
+  color: #dfe2e4;
+}
+
+.sidebarHeader {
+  max-width: 1000px;
+  /* min-width: 400px; */
+  width:100%;
 }
 
 .database {
@@ -40,7 +65,18 @@ body {
 }
 
 .logOut {
-  width: 100px;
+  width: auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: transparent;
+  /* border: 1px solid #6746ed; */
+  color: #c495fd;
+  background-color: #c495fd52;
+}
+
+.logOut:hover {
+  background-color: #f14647;
+  color:#dfe2e4;
 }
 
 .inputURI,
@@ -51,30 +87,54 @@ body {
   font-family: "Courier New", Courier, monospace;
   padding: 20px 20px 0;
 }
+
 input {
   width: 750px;
   text-align: center;
   background-color: white;
   border: 2px solid black;
   border-radius: 50px;
+  box-shadow: 0 blue inset;
 }
+
+.submitURI {
+  width: 35px;
+}
+
+.submitURI, .copyButton {
+  margin-left: -40px;
+  margin-bottom: -5px;
+  background-color: transparent;
+}
+
+/* .copyButton {
+  margin-right: -50px;
+} */
+
 button {
   font-size: clamp(10px, 4vw, 20px);
-  background-color: #f7b0b0;
+  /* background-color: #6746ed; */
   border-radius: 50px;
   width: 30px;
   border: none;
 }
 
+.table {
+  margin: 10px;
+}
+
 .sideTableWrapper {
   max-width: 500px;
   min-width: 300px;
-  width: 0.8rem;
+  padding-bottom: 30px;
+  /* width: 20vw; */
 }
 .sideValueButton {
+  margin: 2px;
+  color: #dfe2e4;
   width: 0.8rem;
   max-width: 500px;
-  min-width: 300px;
+  min-width: 160px;
   background-color: transparent;
   border: none;
   border-radius: 5px;
@@ -84,13 +144,22 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.sideValueButton:hover {
+  color: #c495fd;
+}
+
 .sideTable {
-  border: 2px solid black;
-  border-radius: 5px;
+  text-align: center;
+  border: 2px solid rgb(68, 54, 54);
+  border-color: #c495fd;
+  border-radius: 50px;
   margin: 10px 0 40px 0;
   height: 300px;
   overflow: scroll;
   overflow-x: hidden;
+  background-color: #251f2d;
+  padding-top: 30px;
 }
 .sideTable::-webkit-scrollbar {
   display: none;
@@ -99,6 +168,7 @@ button {
 .sideTableContainer {
   overflow: scroll;
   height: 100vh;
+  padding: 40px;
 }
 
 .sideTableContainer::-webkit-scrollbar {
@@ -117,23 +187,27 @@ button {
 img {
   width: 100%;
 }
+
 .card  /*, .sideBar */ {
   display: inline-block;
   max-width: 500px;
-  min-width: 150px;
-  border: 2px solid rgb(82, 82, 82);
-  border-radius: 5px;
+  min-width: 200px;
+  min-height: 115px;
+  background-color: #151718;
+  border: 2px solid #1bdfc9;
+  border-radius: 53px;
   text-align: center;
   /* background-color: rgb(232, 251, 246); */
-  margin: 10px 10px;
+  margin: 20px 20px;
   vertical-align: top;
   width: 0.8rem;
+
 }
 /* .sideBar {
   width: 275px;
  
   border: none;
-}
+}asdf
 */
 .authpage {
   display: flex;
@@ -162,20 +236,26 @@ img {
   justify-content: center;
 }
 .tableButton {
+  padding: 20px;
   max-width: 500px;
-  min-width: 130px;
+  min-width: 200px;
   width: 0.8rem;
-  background-color: #1abc9c;
+  background-color: #1bdfc9;
   border: none;
-  border-radius: 5px;
-  padding: 15px;
+  border-radius: 50px 50px 0 0 ;
   font-size: clamp(1px, 1vw, 18px);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: auto;
 }
+
+.tableButton:hover {
+  color: #dfe2e4;
+}
+
 .columnButton {
+  margin: 2px;
   color: #dfe2e4;
   max-width: 500px;
   min-width: 150px;
@@ -190,14 +270,19 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.columnButton:hover {
+  color: #1bdfc9;
+}
+
 .tableName {
-  padding: 10px;
+  /* padding: 10px; */
   font-size: clamp(10px, 4vw, 20px);
   text-overflow: ellipsis;
 }
 
 .loginLogo {
-  width: 100px;
+  width: 175px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -229,6 +314,31 @@ img {
   margin: 6% auto;
   background: white;
   padding: 5px;
+}
+
+input[type="text"], textarea {
+  background-color: #151718;
+  color: #dfe2e4;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: red;
+}
+
+input[type=text]:focus, textarea:focus {
+  border: 2px solid #C495FD;
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #151718 inset !important;
+}
+
+input:-webkit-autofill{
+  /* -webkit-box-background: 0 0 0 30px blue inset !important; */
+  -webkit-text-fill-color: #dfe2e4 !important;
 }
 
 .input-group {
@@ -280,4 +390,9 @@ img {
 
 .auth-inner-content {
   margin: auto;
+}
+
+.secondary-btn {
+  margin: auto;
+  background: #1bdfc9;
 }

@@ -2,20 +2,20 @@ import React, { useState, useEffect } from "react";
 
 export default function Columns(props) {
   // console.log(props);
-  const [columnColor, setColumnColor] = useState("#dfe2e4");
+  const [columnColor, setColumnColor] = useState("transparent");
 
   function toggleColor() {
-    if (columnColor === "#dfe2e4") {
+    if (columnColor === "transparent") {
       setColumnColor("#f14647");
     } else {
-      setColumnColor("#dfe2e4");
+      setColumnColor("transparent");
     }
   }
 
   return (
     <button
       className="columnButton"
-      style={{ color: columnColor }}
+      style={{ background: columnColor }}
       onClick={() => {
         props.isOn(props.tableName, props.columns);
         {
