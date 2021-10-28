@@ -39,6 +39,8 @@ Generate a Where Clause query using AND and OR from a single table with multiple
 
 Copy and paste the generated query string.
 
+![screen-gif6](./copyandpaste.gif)
+
 ## Built With
 
 * React.js (React Hooks)
